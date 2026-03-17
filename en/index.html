@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canton Fair VIP Services - Your China Business Partner</title>
+    <meta name="description" content="Professional translation, shopping guide, factory visit services for international buyers - First time in China? Let us help!">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; color: #333; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        /* Header */
+        header { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: white; padding: 20px 0; position: sticky; top: 0; z-index: 100; }
+        header .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 24px; font-weight: bold; color: #ffd700; }
+        nav ul { display: flex; list-style: none; gap: 30px; }
+        nav a { color: white; text-decoration: none; transition: color 0.3s; }
+        nav a:hover { color: #ffd700; }
+        
+        /* Hero */
+        .hero { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 80px 0; text-align: center; }
+        .hero h1 { font-size: 48px; margin-bottom: 20px; }
+        .hero p { font-size: 20px; margin-bottom: 30px; opacity: 0.9; }
+        .cta-button { display: inline-block; background: #ffd700; color: #1a1a2e; padding: 15px 40px; border-radius: 50px; font-size: 18px; font-weight: bold; text-decoration: none; transition: transform 0.3s, box-shadow 0.3s; }
+        .cta-button:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4); }
+        
+        /* Services */
+        .services { padding: 80px 0; background: #f8f9fa; }
+        .section-title { text-align: center; margin-bottom: 50px; }
+        .section-title h2 { font-size: 36px; color: #1a1a2e; margin-bottom: 15px; }
+        .section-title p { color: #666; font-size: 18px; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .service-card { background: white; padding: 40px 30px; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); transition: transform 0.3s; }
+        .service-card:hover { transform: translateY(-10px); }
+        .service-icon { font-size: 48px; margin-bottom: 20px; }
+        .service-card h3 { font-size: 24px; margin-bottom: 15px; color: #1a1a2e; }
+        .service-card p { color: #666; margin-bottom: 20px; }
+        .service-price { font-size: 28px; color: #667eea; font-weight: bold; }
+        
+        /* Features */
+        .features { padding: 80px 0; }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+        .feature-item { display: flex; gap: 20px; }
+        .feature-icon { width: 60px; height: 60px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 15px; display: flex; align-items: center; justify-content: center; font-size: 28px; flex-shrink: 0; }
+        .feature-item h3 { font-size: 20px; margin-bottom: 10px; color: #1a1a2e; }
+        .feature-item p { color: #666; }
+        
+        /* Process */
+        .process { padding: 80px 0; background: #f8f9fa; }
+        .process-steps { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+        .step { flex: 1; min-width: 250px; text-align: center; }
+        .step-number { width: 60px; height: 60px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: bold; margin: 0 auto 20px; }
+        .step h3 { font-size: 20px; margin-bottom: 10px; color: #1a1a2e; }
+        .step p { color: #666; }
+        
+        /* Contact */
+        .contact { padding: 80px 0; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: white; text-align: center; }
+        .contact h2 { font-size: 36px; margin-bottom: 20px; }
+        .contact p { font-size: 18px; margin-bottom: 30px; opacity: 0.9; }
+        .contact-info { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
+        .contact-item { display: flex; align-items: center; gap: 10px; }
+        
+        /* Footer */
+        footer { background: #1a1a2e; color: white; padding: 30px 0; text-align: center; }
+        footer p { opacity: 0.7; }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 32px; }
+            nav { display: none; }
+            .services-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">Canton Fair VIP</div>
+            <nav>
+                <ul>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#features">Why Us</a></li>
+                    <li><a href="#process">Process</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Your China Business Partner</h1>
+            <p>Professional translation, shopping guide, itinerary & factory visit services for global buyers<br>First time in China? Let us make it easy for you!</p>
+            <a href="#contact" class="cta-button">Contact Us Now</a>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <p>One-stop solutions for your Canton Fair success</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">&#128221;</div>
+                    <h3>Professional Translation</h3>
+                    <p>Business negotiation translation, accompanying translation, technical documentation. Support Chinese-English, Chinese-French, Chinese-German, Chinese-Arabic and more.</p>
+                    <div class="service-price">From $180/day</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">&#128722;</div>
+                    <h3>VIP Shopping Guide</h3>
+                    <p>Full exhibition hall accompaniment, product selection advice, supplier matching. Find the best products among thousands of options.</p>
+                    <div class="service-price">From $220/day</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">&#127757;</div>
+                    <h3>Itinerary Arrangement</h3>
+                    <p>Hotel booking, transportation, restaurant recommendations. Focus on business while we handle the logistics.</p>
+                    <div class="service-price">Custom Service</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">&#127969;</div>
+                    <h3>Factory Visit</h3>
+                    <p>Factory visit arrangement, quality inspection accompaniment, business negotiation support. Deep dive into supplier capabilities.</p>
+                    <div class="service-price">From $450/visit</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Us</h2>
+                <p>Professional, Reliable, Trustworthy</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">&#128100;</div>
+                    <div>
+                        <h3>Experienced Team</h3>
+                        <p>Our team has served multiple Canton Fair events, deeply understanding buyer needs</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">&#128737;</div>
+                    <div>
+                        <h3>Transparent Pricing</h3>
+                        <p>Clear pricing with no hidden fees, keeping your budget under control</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">&#128246;</div>
+                    <div>
+                        <h3>Customized Service</h3>
+                        <p>Tailored service solutions based on your specific requirements</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">&#128222;</div>
+                    <div>
+                        <h3>24/7 Support</h3>
+                        <p>Full service support, responding to your needs anytime</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="process" id="process">
+        <div class="container">
+            <div class="section-title">
+                <h2>Service Process</h2>
+                <p>Four simple steps to success</p>
+            </div>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Submit Request</h3>
+                    <p>Fill in the form or contact us, describe your needs</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Get Quote</h3>
+                    <p>We create a customized service plan and quote for you</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Confirm & Pay</h3>
+                    <p>Confirm the plan and pay deposit, service begins</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Enjoy Service</h3>
+                    <p>Receive full VIP service during Canton Fair</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>Book now and start your successful Canton Fair journey</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>&#128231;</span>
+                    <span>service@cantonfair-vip.com</span>
+                </div>
+                <div class="contact-item">
+                    <span>&#128222;</span>
+                    <span>+86 138-0000-0000</span>
+                </div>
+                <div class="contact-item">
+                    <span>&#128205;</span>
+                    <span>Guangzhou, China - Canton Fair Complex</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Canton Fair VIP Services. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
