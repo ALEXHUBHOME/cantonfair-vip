@@ -3,12 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>广交会VIP服务 - 您的中国商务管家</title>
-    <meta name="description" content="为国际买家提供翻译、导购、行程安排、看厂服务 - 首次来华首选">
+    <title>Canton Fair VIP Services - Your China Business Assistant</title>
+    <meta name="description" content="Professional translation, shopping guide, itinerary arrangement, factory visit services for international buyers">
+    <link rel="manifest" href="manifest.json">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; color: #333; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        /* Language Switcher */
+        .lang-switch { position: fixed; top: 20px; right: 20px; z-index: 1000; background: white; border-radius: 25px; padding: 5px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); display: flex; gap: 5px; }
+        .lang-btn { padding: 8px 16px; border: none; background: transparent; cursor: pointer; border-radius: 20px; font-size: 14px; font-weight: 500; transition: all 0.3s; }
+        .lang-btn.active { background: #667eea; color: white; }
         
         /* Header */
         header { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: white; padding: 20px 0; position: sticky; top: 0; z-index: 100; }
@@ -59,7 +65,7 @@
         .contact h2 { font-size: 36px; margin-bottom: 20px; }
         .contact p { font-size: 18px; margin-bottom: 30px; opacity: 0.9; }
         .contact-info { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
-        .contact-item { display: flex; align-items: center; gap: 10px; }
+        .contact-item { display: flex; align-items: center; gap: 10px; font-size: 16px; }
         
         /* Footer */
         footer { background: #1a1a2e; color: white; padding: 30px 0; text-align: center; }
@@ -70,19 +76,33 @@
             .hero h1 { font-size: 32px; }
             nav { display: none; }
             .services-grid { grid-template-columns: 1fr; }
+            .lang-switch { top: 10px; right: 10px; }
+            .contact-info { flex-direction: column; gap: 20px; }
         }
+        
+        [lang="en"] .zh { display: none; }
+        [lang="zh-CN"] .en { display: none; }
     </style>
 </head>
 <body>
+    <!-- Language Switcher -->
+    <div class="lang-switch">
+        <button class="lang-btn active" onclick="setLang('zh-CN')">中文</button>
+        <button class="lang-btn" onclick="setLang('en')">EN</button>
+    </div>
+
     <header>
         <div class="container">
-            <div class="logo">广交会VIP服务</div>
+            <div class="logo">
+                <span class="zh">广交会VIP服务</span>
+                <span class="en">Canton Fair VIP</span>
+            </div>
             <nav>
                 <ul>
-                    <li><a href="#services">服务</a></li>
-                    <li><a href="#features">优势</a></li>
-                    <li><a href="#process">流程</a></li>
-                    <li><a href="#contact">联系</a></li>
+                    <li><a href="#services"><span class="zh">服务</span><span class="en">Services</span></a></li>
+                    <li><a href="#features"><span class="zh">优势</span><span class="en">Why Us</span></a></li>
+                    <li><a href="#process"><span class="zh">流程</span><span class="en">Process</span></a></li>
+                    <li><a href="#contact"><span class="zh">联系</span><span class="en">Contact</span></a></li>
                 </ul>
             </nav>
         </div>
@@ -90,42 +110,93 @@
 
     <section class="hero">
         <div class="container">
-            <h1>您的中国商务管家</h1>
-            <p>为全球买家提供专业翻译、导购、行程安排、看厂服务<br>首次来华？让我们帮您轻松搞定一切！</p>
-            <a href="#contact" class="cta-button">立即咨询</a>
+            <h1>
+                <span class="zh">您的中国商务管家</span>
+                <span class="en">Your China Business Assistant</span>
+            </h1>
+            <p>
+                <span class="zh">为全球买家提供专业翻译、导购、行程安排、看厂服务<br>首次来华？让我们帮您轻松搞定一切！</span>
+                <span class="en">Professional translation, shopping guide, itinerary & factory visit services<br>First time in China? Let us help you with everything!</span>
+            </p>
+            <a href="#contact" class="cta-button">
+                <span class="zh">立即咨询</span>
+                <span class="en">Contact Now</span>
+            </a>
         </div>
     </section>
 
     <section class="services" id="services">
         <div class="container">
             <div class="section-title">
-                <h2>我们的服务</h2>
-                <p>一站式解决方案，让您的广交会之旅无忧</p>
+                <h2>
+                    <span class="zh">我们的服务</span>
+                    <span class="en">Our Services</span>
+                </h2>
+                <p>
+                    <span class="zh">一站式解决方案，让您的广交会之旅无忧</span>
+                    <span class="en">One-stop solutions for your Canton Fair trip</span>
+                </p>
             </div>
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon">&#128221;</div>
-                    <h3>专业翻译</h3>
-                    <p>商务谈判翻译、陪同翻译、技术文档翻译，支持中英/中法/中德/中阿等多语言</p>
-                    <div class="service-price">¥1,200起/天</div>
+                    <h3>
+                        <span class="zh">专业翻译</span>
+                        <span class="en">Professional Translation</span>
+                    </h3>
+                    <p>
+                        <span class="zh">商务谈判翻译、陪同翻译、技术文档翻译，支持中英/中法/中德/中阿等多语言</span>
+                        <span class="en">Business negotiation, accompanying translation, technical docs in Chinese-English/French/German/Arabic & more</span>
+                    </p>
+                    <div class="service-price">
+                        <span class="zh">¥1,200起/天</span>
+                        <span class="en">From ¥1,200/day</span>
+                    </div>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">&#128722;</div>
-                    <h3>VIP导购</h3>
-                    <p>展馆全程陪同，产品筛选建议，供应商对接，让您在海量产品中找到最优选择</p>
-                    <div class="service-price">¥1,500起/天</div>
+                    <h3>
+                        <span class="zh">VIP导购</span>
+                        <span class="en">VIP Shopping Guide</span>
+                    </h3>
+                    <p>
+                        <span class="zh">展馆全程陪同，产品筛选建议，供应商对接，让您在海量产品中找到最优选择</span>
+                        <span class="en">Full exhibition accompany, product selection advice, supplier matching - find the best choice!</span>
+                    </p>
+                    <div class="service-price">
+                        <span class="zh">¥1,500起/天</span>
+                        <span class="en">From ¥1,500/day</span>
+                    </div>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">&#127757;</div>
-                    <h3>行程安排</h3>
-                    <p>酒店预订、交通安排、餐饮推荐，一站式服务让您专注于商务本身</p>
-                    <div class="service-price">定制服务</div>
+                    <h3>
+                        <span class="zh">行程安排</span>
+                        <span class="en">Itinerary Planning</span>
+                    </h3>
+                    <p>
+                        <span class="zh">酒店预订、交通安排、餐饮推荐，一站式服务让您专注于商务本身</span>
+                        <span class="en">Hotel booking, transport, dining recommendations - focus on business!</span>
+                    </p>
+                    <div class="service-price">
+                        <span class="zh">定制服务</span>
+                        <span class="en">Custom Service</span>
+                    </div>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">&#127969;</div>
-                    <h3>看厂服务</h3>
-                    <p>工厂考察安排、质量检测陪同、商务谈判支持，帮您深入了解供应商实力</p>
-                    <div class="service-price">¥3,000起/次</div>
+                    <h3>
+                        <span class="zh">看厂服务</span>
+                        <span class="en">Factory Visit</span>
+                    </h3>
+                    <p>
+                        <span class="zh">工厂考察安排、质量检测陪同、商务谈判支持，帮您深入了解供应商实力</span>
+                        <span class="en">Factory visits, quality inspection, negotiation support - know your suppliers!</span>
+                    </p>
+                    <div class="service-price">
+                        <span class="zh">¥3,000起/次</span>
+                        <span class="en">From ¥3,000/visit</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -134,36 +205,66 @@
     <section class="features" id="features">
         <div class="container">
             <div class="section-title">
-                <h2>为什么选择我们</h2>
-                <p>专业、可靠、值得信赖</p>
+                <h2>
+                    <span class="zh">为什么选择我们</span>
+                    <span class="en">Why Choose Us</span>
+                </h2>
+                <p>
+                    <span class="zh">专业、可靠、值得信赖</span>
+                    <span class="en">Professional, Reliable, Trustworthy</span>
+                </p>
             </div>
             <div class="features-grid">
                 <div class="feature-item">
                     <div class="feature-icon">&#128100;</div>
                     <div>
-                        <h3>经验丰富</h3>
-                        <p>团队成员均有多届广交会服务经验，深谙买家需求</p>
+                        <h3>
+                            <span class="zh">经验丰富</span>
+                            <span class="en">Experienced Team</span>
+                        </h3>
+                        <p>
+                            <span class="zh">团队成员均有多届广交会服务经验，深谙买家需求</span>
+                            <span class="en">Years of Canton Fair experience, understand buyer needs deeply</span>
+                        </p>
                     </div>
                 </div>
                 <div class="feature-item">
                     <div class="feature-icon">&#128737;</div>
                     <div>
-                        <h3>价格透明</h3>
-                        <p>明码标价，无隐藏费用，让您预算可控</p>
+                        <h3>
+                            <span class="zh">价格透明</span>
+                            <span class="en">Transparent Pricing</span>
+                        </h3>
+                        <p>
+                            <span class="zh">明码标价，无隐藏费用，让您预算可控</span>
+                            <span class="en">Clear pricing, no hidden fees, budget control</span>
+                        </p>
                     </div>
                 </div>
                 <div class="feature-item">
                     <div class="feature-icon">&#128246;</div>
                     <div>
-                        <h3>定制服务</h3>
-                        <p>根据您的需求量身定制服务方案，满足个性化要求</p>
+                        <h3>
+                            <span class="zh">定制服务</span>
+                            <span class="en">Customized Service</span>
+                        </h3>
+                        <p>
+                            <span class="zh">根据您的需求量身定制服务方案，满足个性化要求</span>
+                            <span class="en">Tailor-made service plans for your specific needs</span>
+                        </p>
                     </div>
                 </div>
                 <div class="feature-item">
                     <div class="feature-icon">&#128222;</div>
                     <div>
-                        <h3>24/7支持</h3>
-                        <p>全程服务支持，随时响应您的需求</p>
+                        <h3>
+                            <span class="zh">24/7支持</span>
+                            <span class="en">24/7 Support</span>
+                        </h3>
+                        <p>
+                            <span class="zh">全程服务支持，随时响应您的需求</span>
+                            <span class="en">Full service support, always ready for your needs</span>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -173,29 +274,59 @@
     <section class="process" id="process">
         <div class="container">
             <div class="section-title">
-                <h2>服务流程</h2>
-                <p>简单四步，轻松搞定</p>
+                <h2>
+                    <span class="zh">服务流程</span>
+                    <span class="en">Service Process</span>
+                </h2>
+                <p>
+                    <span class="zh">简单四步，轻松搞定</span>
+                    <span class="en">Four simple steps</span>
+                </p>
             </div>
             <div class="process-steps">
                 <div class="step">
                     <div class="step-number">1</div>
-                    <h3>提交需求</h3>
-                    <p>填写表单或联系客服，描述您的需求</p>
+                    <h3>
+                        <span class="zh">提交需求</span>
+                        <span class="en">Submit Request</span>
+                    </h3>
+                    <p>
+                        <span class="zh">填写表单或联系客服，描述您的需求</span>
+                        <span class="en">Fill form or contact us, describe your needs</span>
+                    </p>
                 </div>
                 <div class="step">
                     <div class="step-number">2</div>
-                    <h3>方案制定</h3>
-                    <p>我们为您定制专属服务方案并报价</p>
+                    <h3>
+                        <span class="zh">方案制定</span>
+                        <span class="en">Custom Plan</span>
+                    </h3>
+                    <p>
+                        <span class="zh">我们为您定制专属服务方案并报价</span>
+                        <span class="en">We create a custom service plan and quote</span>
+                    </p>
                 </div>
                 <div class="step">
                     <div class="step-number">3</div>
-                    <h3>确认预约</h3>
-                    <p>确认方案并支付定金，服务生效</p>
+                    <h3>
+                        <span class="zh">确认预约</span>
+                        <span class="en">Confirm & Book</span>
+                    </h3>
+                    <p>
+                        <span class="zh">确认方案并支付定金，服务生效</span>
+                        <span class="en">Confirm plan and pay deposit, service starts</span>
+                    </p>
                 </div>
                 <div class="step">
                     <div class="step-number">4</div>
-                    <h3>享受服务</h3>
-                    <p>广交会期间享受全程VIP服务</p>
+                    <h3>
+                        <span class="zh">享受服务</span>
+                        <span class="en">Enjoy Service</span>
+                    </h3>
+                    <p>
+                        <span class="zh">广交会期间享受全程VIP服务</span>
+                        <span class="en">Enjoy full VIP service during Canton Fair</span>
+                    </p>
                 </div>
             </div>
         </div>
@@ -203,20 +334,33 @@
 
     <section class="contact" id="contact">
         <div class="container">
-            <h2>联系我们</h2>
-            <p>立即预约，开启您的广交会成功之旅</p>
+            <h2>
+                <span class="zh">联系我们</span>
+                <span class="en">Contact Us</span>
+            </h2>
+            <p>
+                <span class="zh">立即预约，开启您的广交会成功之旅</span>
+                <span class="en">Book now, start your successful Canton Fair journey</span>
+            </p>
             <div class="contact-info">
                 <div class="contact-item">
                     <span>&#128231;</span>
-                    <span>service@cantonfair-vip.com</span>
+                    <span>1455933248@qq.com</span>
                 </div>
                 <div class="contact-item">
                     <span>&#128222;</span>
-                    <span>+86 138-0000-0000</span>
+                    <span>+86-13823088611</span>
+                </div>
+                <div class="contact-item">
+                    <span>&#128172;</span>
+                    <span>+852-46093965 (WhatsApp)</span>
                 </div>
                 <div class="contact-item">
                     <span>&#128205;</span>
-                    <span>中国广州·广交会展馆</span>
+                    <span>
+                        <span class="zh">中国广州·广交会</span>
+                        <span class="en">Guangzhou, China · Canton Fair</span>
+                    </span>
                 </div>
             </div>
         </div>
@@ -224,8 +368,33 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 广交会VIP服务. All Rights Reserved.</p>
+            <p>&copy; 2026 Canton Fair VIP Services. All Rights Reserved.</p>
         </div>
     </footer>
+
+    <script>
+        function setLang(lang) {
+            document.documentElement.lang = lang;
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            localStorage.setItem('preferred-lang', lang);
+        }
+        
+        // Load saved language preference
+        const savedLang = localStorage.getItem('preferred-lang');
+        if (savedLang) {
+            setLang(savedLang);
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                if ((savedLang === 'zh-CN' && btn.textContent === '中文') || 
+                    (savedLang === 'en' && btn.textContent === 'EN')) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+        }
+    </script>
 </body>
 </html>
