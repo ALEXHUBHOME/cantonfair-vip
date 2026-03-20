@@ -1,0 +1,100 @@
+#ai-chat-widget {
+  position: fixed !important;
+  bottom: 90px !important;
+  right: 20px !important;
+  width: 350px !important;
+  height: 450px !important;
+  background: #fff !important;
+  border-radius: 15px !important;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.15) !important;
+  z-index: 99999 !important;
+  overflow: hidden !important;
+  display: none !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+}
+#ai-chat-widget.show {
+  display: block !important;
+}
+.chat-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  color: #fff !important;
+  padding: 15px !important;
+  font-weight: bold !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  cursor: pointer !important;
+}
+.chat-close {
+  font-size: 18px !important;
+}
+.chat-messages {
+  height: 340px !important;
+  overflow-y: auto !important;
+  padding: 15px !important;
+  background: #f9f9f9 !important;
+}
+.chat-message {
+  margin-bottom: 12px !important;
+  padding: 12px !important;
+  border-radius: 12px !important;
+  max-width: 85% !important;
+  font-size: 14px !important;
+  line-height: 1.5 !important;
+  word-wrap: break-word !important;
+}
+.chat-message.bot {
+  background: #fff !important;
+  border: 1px solid #e0e0e0 !important;
+  margin-right: auto !important;
+}
+.chat-message.user {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  color: #fff !important;
+  margin-left: auto !important;
+}
+.chat-input {
+  display: flex !important;
+  padding: 12px !important;
+  border-top: 1px solid #eee !important;
+  background: #fff !important;
+}
+.chat-input input {
+  flex: 1 !important;
+  padding: 10px 15px !important;
+  border: 1px solid #ddd !important;
+  border-radius: 25px !important;
+  outline: none !important;
+  font-size: 14px !important;
+}
+.chat-input input:focus {
+  border-color: #667eea !important;
+}
+.chat-input button {
+  margin-left: 10px !important;
+  padding: 10px 20px !important;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: 25px !important;
+  cursor: pointer !important;
+  font-weight: bold !important;
+}
+#chat-toggle-btn {
+  position: fixed !important;
+  bottom: 20px !important;
+  right: 20px !important;
+  width: 60px !important;
+  height: 60px !important;
+  border-radius: 50% !important;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  border: none !important;
+  color: #fff !important;
+  font-size: 24px !important;
+  cursor: pointer !important;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4) !important;
+  z-index: 99998 !important;
+}
+#chat-toggle-btn:hover {
+  transform: scale(1.1) !important;
+}

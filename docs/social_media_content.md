@@ -1,0 +1,245 @@
+# 社交媒体内容制作指南
+
+## 一、小红书内容（中文）
+
+### 1.1 爆款标题模板
+```
+#广交会 #翻译 #采购
+【必看】第一次来广交会，忽略这几点=白来！
+-
+广交会不会英语？看完这篇再也不慌了！
+广交会三天怎么逛？这份攻略够了
+在广交会找到靠谱供应商，我只用了...
+广交会翻译一天多少钱？2026最新行情
+```
+
+### 1.2 内容脚本（30-60秒）
+```python
+# 视频脚本模板
+【开场Hook - 3秒】
+"第一次来广交会？不会英语？看完这个视频就够了！" 🇸
+
+【正文 - 45秒】
+"大家好！今天分享广交会采购必看攻略👇
+
+1️⃣ 【提前准备】
+   • 确定产品类目
+   • 翻译好名片和需求
+
+2️⃣ 【找翻译】
+   • 专业展会翻译 ¥1200/天
+   • 包含谈判陪同
+
+3️⃣ 【找供应商】
+   • 不要只看展位大小
+   • 看工厂实力更重要
+
+4️⃣ 【看厂验厂】
+   • 预约实地考察
+   • 了解生产能力"
+
+【结尾CTA - 5秒】
+"需要广交会VIP服务？私信我！"
+#广交会 #翻译 #中国采购 #外贸
+```
+
+### 1.3 图文模板
+```
+🇨🇳 广交会采购必看 | 第一次来广交会必收藏
+
+⏰ 展会时间
+  • 第一期：4月15-19日（电子电器）
+  • 第二期：4月23-27日（消费品）
+  • 第三期：5月1-5日（建材家居）
+
+💰 服务报价
+  • 翻译：¥1200/天起步
+  • 导购：¥1500/天起步
+  • 看厂：¥3000/次起步
+
+📍 我们提供
+  ✅ 专业翻译（20+语言）
+  ✅ VIP导购带看
+  ✅ 工厂实地考察
+  ✅ 商务谈判支持
+
+📱 感兴趣私信或评论
+#广交会 #中国采购 #翻译服务
+```
+
+---
+
+## 二、抖音/快手内容（中文短视频）
+
+### 2.1 爆款脚本模板
+```python
+# 脚本1：痛点开场
+"广交会人太多了，不会英语根本逛不明白！"
+↓
+"但是有了这个服务..."
+↓
+"不懂中文也能找到靠谱供应商"
+
+# 脚本2：效果展示
+"昨天帮客户找到一个供应商，今天就签单了"
+"广交会效率神器了解一下"
+
+# 脚本3：现场记录
+"带客户逛广交会第N天"
+"今天又帮客户锁定了一个意向工厂"
+```
+
+### 2.2 短视频脚本（15-30秒）
+```python
+# 版本A：痛点+解决方案
+【0-3秒】
+"不会英语来广交会=白来？"
+
+【4-10秒】
+"其实只要找一个专业翻译+导购
+帮你筛选、谈判、对接
+
+【11-20秒】
+"我们3天就帮客户找到了
+价值50万的供应商"
+
+【21-30秒】
+"点击下方链接，免费咨询"
+
+# 版本B：现场感
+【0-5秒】
+"广交会现场实拍，看这就是人流量"
+
+【6-15秒】
+"有了专业导购
+不用自己跑断腿"
+
+【16-25秒】
+"想要广交会采购攻略？
+评论区666"
+```
+
+---
+
+## 三、TikTok/Reels内容（英文/国际化）
+
+### 3.1 英文脚本模板
+```python
+# Hooks that work:
+"First time at Canton Fair? Watch this!"
+"Don't make this mistake at China's biggest trade show"
+"How to find suppliers at Canton Fair without speaking Chinese"
+
+# Main content structure
+[0-5s] Hook - Attention grabber
+[6-20s] Value - Tips, tricks, advice  
+[21-30s] CTA - Follow, DM, Link
+
+# Example Script
+"First time at Canton Fair? Don't make these 3 mistakes! 🇸
+
+1️⃣ Don't just visit big booths
+2️⃣ Always verify suppliers BEFORE signing
+3️⃣ Get a local guide - WORTH IT
+
+We help buyers find quality suppliers in 3 days!
+DM for details 👇
+
+#CantonFair #ChinaSourcing #TradeShow #Guangzhou"
+```
+
+### 3.2 英文图文模板
+```
+🇨🇺 CANTON FAIR 2026 - Ultimate Guide
+
+📅 When: April 15 - May 5
+📍 Where: Guangzhou, China
+💡 Why Attend: 60,000+ exhibitors
+
+OUR SERVICES:
+✅ Professional Translation (20+ languages)
+✅ VIP Sourcing Guide
+✅ Factory Visit Arrangement
+✅ Negotiation Support
+
+💰 From $200/day
+
+📩 DM for quote!
+#CantonFair #ChinaTrade #Sourcing #Guangzhou
+```
+
+---
+
+## 四、Facebook/Instagram内容
+
+### 4.1 Facebook Post模板
+```
+🇨🇺 Canton Fair VIP Services | Your China Business Assistant
+
+Attending the world's largest trade show? Let us make it seamless!
+
+OUR SERVICES:
+✅ Professional Translation (EN, FR, DE, AR & more)
+✅ VIP Sourcing Guide - Navigate 60,000+ exhibitors
+✅ Factory Visit Arrangement - Verify suppliers
+✅ Full Itinerary Planning - Hotels, transport
+
+WHY CHOOSE US?
+💰 Transparent Pricing
+💼 10 Years Experience
+🤝 1000+ Happy Buyers
+
+📧 1455933248@qq.com
+📱 +86-13823088611 (WhatsApp)
+
+#CantonFair #ChinaSourcing #TradeShow #Guangzhou
+```
+
+### 4.2 Instagram Post模板
+```
+🇨🇺 Canton Fair VIP Services
+
+The ULTIMATE guide to sourcing from China!
+-
+✅ Translation (20+ languages)
+✅ Sourcing Guide  
+✅ Factory Visits
+✅ Negotiation Support
+-
+💰 Starting from $200/day
+💬 DM for details!
+-
+#CantonFair #ChinaTrade #Sourcing #Guangzhou #Business #ImportExport
+```
+
+---
+
+## 五、各平台发布最佳时间
+
+| 平台 | 最佳时间(北京时间) | 频率建议 |
+|------|-------------------|----------|
+| 小红书 | 12:00-13:00, 18:00-20:00 | 每天1-2篇 |
+| 抖音 | 12:00-13:00, 21:00-22:00 | 每天1-2条 |
+| TikTok | 19:00-21:00 | 每天1条 |
+| Instagram | 9:00-11:00 | 每天1篇 |
+| Facebook | 13:00-15:00 | 每天1篇 |
+| YouTube | 15:00-18:00 | 每周2-3条 |
+
+---
+
+## 六、Hashtag建议
+
+### 中文
+```
+#广交会 #中国采购 #外贸 #翻译服务 
+#供应商 #工厂考察 #国际贸易 
+#广州 #展会 #采购攻略
+```
+
+### 英文
+```
+#CantonFair #ChinaSourcing #TradeShow 
+#Guangzhou #ImportExport #Business 
+#Supplier #FactoryVisit #Manufacturing
+```
+
