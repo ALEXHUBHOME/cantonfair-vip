@@ -13,23 +13,23 @@ const knowledgeBase = [
    answer: "📍 **广州琶洲国际会展中心**\n🏢 展馆总面积118万平方米\n🚇 地铁8号线琶洲站直达"},
   
   // ========== 产品展期 - 第一期 ==========
-  {intent: "产品展期", keywords: ["家电", "电子产品", "电子在", "家电产品", "家电在", "电器", "电气", "机械", "机械设备", "机械在", "设备", "建材", "化工", "home appliance", "appliances", "electronics", "machinery", "chemical", "电子产品在", "家电什么时候", "电子什么时候", "机械什么时候", "建材在", "化工在"], 
+  {intent: "产品展期", keywords: ["家电", "电子", "电器", "电气", "机械", "设备", "建材", "化工", "home appliance", "appliances", "electronics", "machinery", "chemical"], 
    answer: "🏭 **第一期** (4月15-19日)\n📍 A区展馆\n产品：家电、电子、机械、建材、化工"},
   
   // ========== 产品展期 - 玩具 ==========
-  {intent: "产品展期", keywords: ["玩具", "玩具产品", "玩具展", "玩具在", "玩具什么时候", "玩具哪", "玩具在第几期", "玩具哪个区", "想买玩具", "买玩具", "玩具在哪"], 
+  {intent: "产品展期", keywords: ["玩具", "玩具产品", "玩具展"], 
    answer: "🧸 **第二期** (4月23-27日)\n📍 B区展馆\n产品：玩具、礼品、家居"},
   
   // ========== 产品展期 - 第二期 ==========
-  {intent: "产品展期", keywords: ["陶瓷", "陶瓷在", "陶瓷什么时候", "餐厨", "厨房", "家居", "家居在", "装饰", "礼品", "礼品在", "ceramic", "kitchen", "home", "gift", "家居产品"], 
+  {intent: "产品展期", keywords: ["陶瓷", "餐厨", "厨房", "家居", "装饰", "礼品", "ceramic", "kitchen", "home", "gift"], 
    answer: "🏠 **第二期** (4月23-27日)\n📍 B区展馆\n产品：陶瓷、餐厨、家居、礼品"},
   
   // ========== 产品展期 - 纺织服装 ==========
-  {intent: "产品展期", keywords: ["服装", "服装在", "服装什么时候", "纺织", "纺织在", "面料", "面料在", "家纺", "家纺在", "textile", "fabric", "garment", "fashion", "apparel", "服装产品"], 
+  {intent: "产品展期", keywords: ["服装", "纺织", "面料", "家纺", "textile", "fabric", "garment", "fashion", "apparel"], 
    answer: "👔 **第二期和第三期** (4月底-5月初)\n📍 C区展馆\n产品：纺织、服装、面料、家纺"},
   
   // ========== 产品展期 - 食品医疗 ==========
-  {intent: "产品展期", keywords: ["食品", "食品在", "食品什么时候", "农产品", "医药", "医药在", "医疗器械", "医疗器械在", "food", "agriculture", "pharma", "medical", "medicine", "health", "食品产品"], 
+  {intent: "产品展期", keywords: ["食品", "农产品", "医药", "医疗器械", "food", "agriculture", "pharma", "medical", "medicine", "health"], 
    answer: "💊 **第三期** (4月底-5月初)\n📍 D区展馆\n产品：食品、农产品、医药、医疗器械"},
   
   // ========== 产品展期 - 其他 ==========
@@ -37,7 +37,7 @@ const knowledgeBase = [
    answer: "📦 **第三期** (4月底-5月初)\n📍 D区展馆\n产品：鞋、箱包、文具、办公用品"},
   
   // ========== 通用展期 ==========
-  {intent: "展期", keywords: ["展期", "第几期", "哪一期", "产品分类", "phase", "exhibit", "exhibition", "products", "category", "有什么", "哪里", "哪个", "购买", "哪里买", "在哪买"], 
+  {intent: "展期", keywords: ["展期", "第几期", "哪一期", "产品分类", "phase", "exhibit", "exhibition", "products", "category", "有什么"], 
    answer: "📋 **广交会三期安排**:\n第1期：电子机械建材（A区）\n第2期：家居礼品陶瓷（B区）\n第3期：食品纺织医疗（D区）\n\n请问您想找什么产品？"},
   
   // ========== 行程规划 - 核心意图 ==========
@@ -49,7 +49,7 @@ const knowledgeBase = [
    answer: "✈️ **机票查询服务**\n\n我可以帮您查询航班！请告诉我您的**出发城市**。\n\n🔗 您也可以自行查询：\n• 携程: https://flights.ctrip.com\n• 飞猪: https://flights.alipay.com"},
   
   // ========== 酒店 ==========
-  {intent: "酒店", keywords: ["酒店", "住宿", "hotel", "accommodation", "入住", "订房", "预订", "广交会期间", "展会期间", "住哪", "住哪里"], 
+  {intent: "酒店", keywords: ["酒店", "住宿", "hotel", "accommodation", "入住", "订房", "预订"], 
    answer: "🏨 **琶洲附近酒店推荐**\n\n⭐ 广州香格里拉大酒店\n⭐ 广州保利洲际酒店\n⭐ 广交会威斯汀酒店\n\n💡 建议提前预订享优惠！\n\n🔗 查询预订：\n• 携程: https://hotels.ctrip.com\n• 飞猪: https://hotels.alipay.com"},
   
   // ========== 火车票 ==========
@@ -61,7 +61,7 @@ const knowledgeBase = [
    answer: "🚗 **接送服务**\n\n白云机场 ↔ 琶洲展馆：300-500元/次\n广州南站 ↔ 琶洲展馆：200-400元/次\n\n需要预约请告诉我您的航班/车次信息！"},
   
   // ========== 翻译服务 ==========
-  {intent: "翻译", keywords: ["翻译", "translator", "translation", "需要翻译", "怎么收费", "多少钱"], 
+  {intent: "翻译", keywords: ["翻译", "translator", "translation", "需要翻译"], 
    answer: "🗣️ **翻译服务**\n\n💰 日常翻译：500元/天\n💰 商务谈判翻译：800元/天\n\n🌍 语种：英语、法语、德语、阿拉伯语、西班牙语、日语、韩语等\n\n需要预约请告诉我！"},
   
   // ========== 导购服务 ==========
