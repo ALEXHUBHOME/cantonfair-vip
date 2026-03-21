@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>广交会VIP服务 - 您的中国采购专家</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.6; color: #333; }
+        
+        /* Hero Section with Blurred Background */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('images/bg.jpg') center/cover no-repeat;
+            filter: blur(8px);
+            transform: scale(1.1);
+            z-index: 0;
+        }
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0,51,102,0.88) 0%, rgba(0,102,204,0.82) 100%);
+            z-index: 1;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            padding: 40px 20px;
+            max-width: 900px;
+        }
+        .hero h1 { font-size: 56px; margin-bottom: 20px; font-weight: 700; }
+        .hero .subtitle { font-size: 22px; margin-bottom: 35px; color: #ffd700; }
+        
+        /* Gallery Section */
+        .gallery-section {
+            padding: 80px 0;
+            background: linear-gradient(180deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+        .gallery-item {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            aspect-ratio: 16/10;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        .gallery-item:hover img { transform: scale(1.1); }
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+            font-weight: 600;
+            font-size: 18px;
+        }
+        
+        /* Service Cards */
+        .services { padding: 80px 0; background: white; }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .service-card {
+            background: linear-gradient(145deg, #ffffff, #f8f9fa);
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: all 0.3s;
+            border: 1px solid #e9ecef;
+        }
+        .service-card:hover { transform: translateY(-10px); box-shadow: 0 20px 60px rgba(0,102,204,0.15); }
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #0066cc, #003366);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 36px;
+            color: white;
+        }
+        
+        /* CTA Buttons */
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #ffd700, #ffaa00);
+            color: #003366;
+            padding: 18px 50px;
+            border-radius: 50px;
+            font-size: 20px;
+            font-weight: bold;
+            text-decoration: none;
+            margin: 10px;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(255,215,0,0.3);
+        }
+        .cta-button:hover { transform: scale(1.05); box-shadow: 0 15px 40px rgba(255,215,0,0.4); }
+        
+        /* Language Switch */
+        .lang-switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 9999;
+            background: rgba(255,255,255,0.95);
+            border-radius: 30px;
+            padding: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+        .lang-btn {
+            padding: 10px 20px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        .lang-btn.active { background: #0066cc; color: white; }
+        
+        /* Value Banner */
+        .value-banner {
+            background: linear-gradient(135deg, #ffd700, #ff9500);
+            padding: 50px 0;
+        }
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+        .value-item i { font-size: 40px; margin-bottom: 15px; color: #003366; }
+        
+        /* Contact Section */
+        .contact { background: linear-gradient(135deg, #003366, #0066cc); color: white; padding: 80px 0; }
+        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; }
+        .contact-item { text-align: center; }
+        .contact-item i { font-size: 36px; margin-bottom: 15px; color: #ffd700; }
+        
+        /* Interactive Section */
+        .interactive { background: #f8f9fa; padding: 80px 0; }
+        .interactive-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .interactive-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 3px solid transparent;
+        }
+        .interactive-card:hover { border-color: #0066cc; transform: translateY(-8px); }
+        .btn { display: inline-block; padding: 14px 35px; border-radius: 30px; font-weight: 600; }
+        .btn-primary { background: #0066cc; color: white; }
+        
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 36px; }
+            .gallery-grid { grid-template-columns: 1fr; }
+            .interactive-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Language Switch -->
+    <div class="lang-switch">
+        <button class="lang-btn active" onclick="setLang('zh-CN')">中文</button>
+        <button class="lang-btn" onclick="setLang('en')">EN</button>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 id="hero-title">广交会VIP服务</h1>
+            <p class="subtitle" id="hero-subtitle">您的中国采购专家 - 翻译 | 导购 | 工厂考察</p>
+            <div>
+                <a href="#contact" class="cta-button" id="cta1">立即预约</a>
+                <a href="#services" class="cta-button" style="background:rgba(255,255,255,0.2);color:#fff" id="cta2">了解更多</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <div class="container">
+            <div class="section-title">
+                <h2 style="font-size:36px;color:#003366;margin-bottom:15px;">服务实景</h2>
+                <p style="color:#666;font-size:18px;">专业团队，为您提供全方位服务</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="images/booth.jpg" alt="展位现场">
+                    <div class="gallery-caption">📍 展位现场</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/negotiation.jpg" alt="洽谈场景">
+                    <div class="gallery-caption">🤝 商务洽谈</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/footflow.jpg" alt="人流量">
+                    <div class="gallery-caption">👥 客流如潮</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2 style="font-size:36px;color:#003366;margin-bottom:15px;">我们的服务</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-language"></i></div>
+                    <h3 style="font-size:24px;color:#003366;margin-bottom:15px;">专业翻译</h3>
+                    <p style="color:#666;margin-bottom:20px;">英语、法语、德语、阿拉伯语等多语言服务</p>
+                    <div style="font-size:28px;color:#0066cc;font-weight:bold;">¥500-800/天</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-shopping-cart"></i></div>
+                    <h3 style="font-size:24px;color:#003366;margin-bottom:15px;">VIP导购</h3>
+                    <p style="color:#666;margin-bottom:20px;">带您逛展馆，筛选优质产品</p>
+                    <div style="font-size:28px;color:#0066cc;font-weight:bold;">¥800-1200/天</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-industry"></i></div>
+                    <h3 style="font-size:24px;color:#003366;margin-bottom:15px;">工厂考察</h3>
+                    <p style="color:#666;margin-bottom:20px;">实地考察供应商工厂</p>
+                    <div style="font-size:28px;color:#0066cc;font-weight:bold;">¥600-1000/次</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Banner -->
+    <section class="value-banner">
+        <div class="container">
+            <div class="value-grid">
+                <div class="value-item">
+                    <i class="fas fa-clock"></i>
+                    <div style="font-size:20px;color:#003366;font-weight:600;">7×24小时</div>
+                    <div style="color:#003366;">随时响应</div>
+                </div>
+                <div class="value-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <div style="font-size:20px;color:#003366;font-weight:600;">诚信可靠</div>
+                    <div style="color:#003366;">品质保障</div>
+                </div>
+                <div class="value-item">
+                    <i class="fas fa-user-tie"></i>
+                    <div style="font-size:20px;color:#003366;font-weight:600;">专业团队</div>
+                    <div style="color:#003366;">经验丰富</div>
+                </div>
+                <div class="value-item">
+                    <i class="fas fa-dollar-sign"></i>
+                    <div style="font-size:20px;color:#003366;font-weight:600;">价格透明</div>
+                    <div style="color:#003366;">无隐藏费用</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Section -->
+    <section class="interactive" id="interactive">
+        <div class="container">
+            <div class="section-title">
+                <h2 style="font-size:36px;color:#003366;margin-bottom:15px;">留言互动</h2>
+            </div>
+            <div class="interactive-grid">
+                <div class="interactive-card" onclick="showMessageForm()">
+                    <i class="fas fa-user" style="font-size:48px;color:#0066cc;margin-bottom:20px;"></i>
+                    <h3 style="font-size:22px;color:#003366;margin-bottom:15px;">我是买家</h3>
+                    <p style="color:#666;margin-bottom:20px;">需要采购服务</p>
+                    <span class="btn btn-primary">立即留言</span>
+                </div>
+                <div class="interactive-card" onclick="showMessageForm()">
+                    <i class="fas fa-store" style="font-size:48px;color:#28a745;margin-bottom:20px;"></i>
+                    <h3 style="font-size:22px;color:#003366;margin-bottom:15px;">我是卖家</h3>
+                    <p style="color:#666;margin-bottom:20px;">需要推广服务</p>
+                    <span class="btn" style="background:#28a745;color:white;">立即留言</span>
+                </div>
+                <div class="interactive-card" onclick="showMessageForm()">
+                    <i class="fas fa-handshake" style="font-size:48px;color:#fd7e14;margin-bottom:20px;"></i>
+                    <h3 style="font-size:22px;color:#003366;margin-bottom:15px;">应聘合作</h3>
+                    <p style="color:#666;margin-bottom:20px;">加入我们的团队</p>
+                    <span class="btn" style="background:#fd7e14;color:white;">立即留言</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2 style="font-size:36px;margin-bottom:15px;">联系我们</h2>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <h3 style="font-size:20px;margin-bottom:10px;">电话</h3>
+                    <p>+86 138-2308-8611</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <h3 style="font-size:20px;margin-bottom:10px;">邮箱</h3>
+                    <p>1455933248@qq.com</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-weixin"></i>
+                    <h3 style="font-size:20px;margin-bottom:10px;">微信</h3>
+                    <p>blackhawkzh</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Chat Widget -->
+    <div id="chat-toggle-btn" onclick="toggleChat()" style="position:fixed;bottom:30px;right:30px;width:70px;height:70px;background:linear-gradient(135deg,#0066cc,#003366);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 10px 30px rgba(0,102,204,0.4);z-index:9998;">
+        <i class="fas fa-headset" style="color:white;font-size:30px;"></i>
+    </div>
+    <div id="ai-chat-widget" class="show" style="position:fixed;bottom:120px;right:30px;width:380px;max-height:500px;background:white;border-radius:20px;box-shadow:0 15px 50px rgba(0,0,0,0.2);z-index:9999;display:none;flex-direction:column;">
+        <div style="background:linear-gradient(135deg,#0066cc,#003366);color:white;padding:20px;border-radius:20px 20px 0 0;">
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+                <span style="font-size:18px;font-weight:600;">🤖 AI客服</span>
+                <i onclick="toggleChat()" style="cursor:pointer;font-size:20px;">✕</i>
+            </div>
+        </div>
+        <div id="chat-messages" style="flex:1;padding:20px;overflow-y:auto;min-height:300px;"></div>
+        <div style="padding:15px;border-top:1px solid #eee;display:flex;gap:10px;">
+            <input id="chat-input" type="text" placeholder="请输入您的问题..." style="flex:1;padding:12px;border:1px solid #ddd;border-radius:25px;outline:none;">
+            <button onclick="sendMessage()" style="background:#0066cc;color:white;border:none;padding:12px 20px;border-radius:25px;cursor:pointer;">发送</button>
+        </div>
+    </div>
+
+    <script>
+        // Language switching
+        function setLang(lang) {
+            document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+            event.target.classList.add('active');
+            if(lang === 'en') {
+                document.getElementById('hero-title').textContent = 'Canton Fair VIP Services';
+                document.getElementById('hero-subtitle').textContent = 'Your China Sourcing Expert - Translation | Shopping Guide | Factory Visit';
+                document.getElementById('cta1').textContent = 'Book Now';
+                document.getElementById('cta2').textContent = 'Learn More';
+            }
+        }
+        
+        // Chat functions
+        var chatWidget = document.getElementById('ai-chat-widget');
+        var chatBtn = document.getElementById('chat-toggle-btn');
+        function toggleChat() {
+            if(chatWidget.style.display === 'none') {
+                chatWidget.style.display = 'flex';
+                chatBtn.style.display = 'none';
+            } else {
+                chatWidget.style.display = 'none';
+                chatBtn.style.display = 'flex';
+            }
+        }
+        function sendMessage() {
+            var input = document.getElementById('chat-input');
+            var msg = input.value.trim();
+            if(!msg) return;
+            var msgs = document.getElementById('chat-messages');
+            msgs.innerHTML += '<div style="background:#0066cc;color:white;padding:10px 15px;border-radius:15px 15px 0 15px;margin:10px 0;text-align:right;">' + msg + '</div>';
+            setTimeout(function() {
+                msgs.innerHTML += '<div style="background:#f0f0f0;color:#333;padding:10px 15px;border-radius:15px 15px 15px 0;margin:10px 0;">您好！请问有什么可以帮您？</div>';
+                msgs.scrollTop = msgs.scrollHeight;
+            }, 500);
+            input.value = '';
+        }
+        
+        // Placeholder for message form
+        function showMessageForm() { alert('留言功能开发中...'); }
+    </script>
+</body>
+</html>
