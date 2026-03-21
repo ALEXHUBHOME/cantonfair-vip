@@ -22,80 +22,51 @@
         .hero { background: linear-gradient(135deg, rgba(0,51,102,0.92) 0%, rgba(0,102,204,0.85) 100%), url('https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1920'); color: white; padding: 130px 0; text-align: center; }
         .hero h1 { font-size: 48px; margin-bottom: 20px; }
         .hero .subtitle { font-size: 17px; margin-bottom: 30px; color: #ffd700; }
-        .hero-badges { display: flex; justify-content: center; gap: 20px; margin-bottom: 40px; flex-wrap: wrap; }
-        .hero-badge { background: rgba(255,255,255,0.12); padding: 12px 20px; border-radius: 30px; }
-        .hero-badge i { margin-right: 8px; color: #ffd700; }
         .cta-button { display: inline-block; background: linear-gradient(135deg, #ffd700, #ffaa00); color: #003366; padding: 16px 45px; border-radius: 50px; font-size: 18px; font-weight: bold; text-decoration: none; margin: 5px; }
-        .cta-button:hover { transform: translateY(-3px); }
         .value-banner { background: linear-gradient(135deg, #ffd700, #ffaa00); padding: 35px 0; }
         .value-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; text-align: center; }
         .value-item { color: #003366; }
         .value-item i { font-size: 28px; margin-bottom: 8px; }
-        .services, .features, .interactive, .media-section, .process, .testimonials, .contact { padding: 70px 0; }
+        .services, .features, .interactive, .process, .testimonials, .contact { padding: 70px 0; }
         .services, .testimonials { background: white; }
         .features, .process { background: #f5f7fa; }
         .section-title { text-align: center; margin-bottom: 45px; }
         .section-title h2 { font-size: 34px; color: #003366; margin-bottom: 12px; }
-        .section-title p { color: #666; font-size: 16px; }
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
-        .service-card { background: white; padding: 35px 25px; border-radius: 18px; box-shadow: 0 8px 30px rgba(0,0,0,0.07); text-align: center; transition: all 0.3s; }
-        .service-card:hover { transform: translateY(-8px); border: 2px solid #0066cc; }
+        .service-card { background: white; padding: 35px 25px; border-radius: 18px; box-shadow: 0 8px 30px rgba(0,0,0,0.07); text-align: center; }
         .service-icon { width: 70px; height: 70px; background: linear-gradient(135deg, #0066cc, #003366); border-radius: 18px; display: flex; align-items: center; justify-content: center; font-size: 30px; margin: 0 auto 18px; color: white; }
         .service-card h3 { font-size: 22px; color: #003366; margin-bottom: 12px; }
-        .service-card p { color: #666; margin-bottom: 18px; }
         .service-price { font-size: 24px; color: #0066cc; font-weight: bold; }
         .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
         .feature-item { display: flex; gap: 18px; background: white; padding: 22px; border-radius: 14px; }
-        .feature-icon { width: 55px; height: 55px; background: linear-gradient(135deg, #0066cc, #004488); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 22px; flex-shrink: 0; }
-        .feature-item h3 { font-size: 17px; color: #003366; margin-bottom: 7px; }
-        .feature-item p { color: #666; font-size: 13px; }
+        .feature-icon { width: 55px; height: 55px; background: linear-gradient(135deg, #0066cc, #004488); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 22px; }
         .interactive-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
-        @media (max-width: 900px) { .interactive-grid { grid-template-columns: 1fr; } }
-        .interactive-card { background: linear-gradient(135deg, #f8f9fa, #fff); padding: 35px 25px; border-radius: 18px; text-align: center; border: 2px solid #eee; transition: all 0.3s; }
-        .interactive-card:hover { border-color: #0066cc; }
-        .interactive-card i { font-size: 48px; margin-bottom: 18px; }
-        .interactive-card h3 { font-size: 22px; color: #003366; margin-bottom: 12px; }
-        .interactive-card p { color: #666; margin-bottom: 20px; }
+        .interactive-card { background: white; padding: 30px; border-radius: 15px; text-align: center; cursor: pointer; transition: all 0.3s; border: 2px solid transparent; }
+        .interactive-card:hover { border-color: #0066cc; transform: translateY(-5px); }
         .btn { display: inline-block; padding: 12px 30px; border-radius: 25px; text-decoration: none; font-weight: 600; color: white; cursor: pointer; border: none; }
         .btn-buyer { background: #0066cc; }
         .btn-seller { background: #28a745; }
         .btn-partner { background: #fd7e14; }
         .media-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 12px; }
-        .media-link { display: flex; flex-direction: column; align-items: center; padding: 20px 12px; border-radius: 12px; text-decoration: none; color: white; gap: 6px; }
-        .media-link i { font-size: 28px; }
-        .media-link span { font-weight: 600; font-size: 11px; }
-        .media-xiaohongshu { background: #ff2442; }
-        .media-twitter { background: #1da1f2; }
-        .media-facebook { background: #1877f2; }
-        .media-douyin { background: #000; }
-        .media-tiktok { background: #ff0050; }
-        .media-instagram { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743); }
-        .media-youtube { background: #ff0000; }
+        .media-link { display: flex; flex-direction: column; align-items: center; padding: 20px; border-radius: 12px; text-decoration: none; color: white; }
         .media-whatsapp { background: #25d366; }
-        .process-steps { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 25px; }
-        .step { flex: 1; min-width: 200px; text-align: center; }
-        .step-number { width: 55px; height: 55px; background: linear-gradient(135deg, #0066cc, #003366); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: bold; margin: 0 auto 18px; }
-        .step h3 { font-size: 17px; color: #003366; margin-bottom: 8px; }
-        .step p { color: #666; font-size: 13px; }
-        .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
-        .testimonial { background: #f8f9fa; padding: 25px; border-radius: 15px; }
-        .testimonial-stars { color: #ffd700; margin-bottom: 10px; }
-        .testimonial p { color: #555; margin-bottom: 15px; }
-        .testimonial-header { display: flex; align-items: center; gap: 15px; }
-        .testimonial-avatar { width: 50px; height: 50px; background: #0066cc; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; }
-        .testimonial-info h4 { font-size: 16px; color: #003366; }
-        .testimonial-info span { font-size: 13px; color: #666; }
-        .contact { background: linear-gradient(135deg, #003366, #001a33); color: white; text-align: center; }
-        .contact h2 { font-size: 32px; margin-bottom: 18px; }
-        .contact-cards { display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; margin-bottom: 35px; }
+        .contact-cards { display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; }
         .contact-card { background: rgba(255,255,255,0.1); padding: 22px 32px; border-radius: 14px; }
         .contact-card i { font-size: 26px; margin-bottom: 10px; color: #ffd700; }
-        .contact-card h3 { font-size: 15px; margin-bottom: 6px; }
         footer { background: #001a33; color: white; padding: 22px 0; text-align: center; }
-        footer p { opacity: 0.7; font-size: 13px; }
-        @media (max-width: 768px) { .hero h1 { font-size: 30px; } nav { display: none; } .services-grid { grid-template-columns: 1fr; } .contact-cards { flex-direction: column; align-items: center; } .contact-card { width: 100%; max-width: 280px; } }
         [lang="en"] .zh { display: none; }
         [lang="zh-CN"] .en { display: none; }
+        #ai-chat-widget { display: none; position: fixed; bottom: 90px; right: 20px; width: 350px; height: 450px; background: #fff; border-radius: 15px; box-shadow: 0 5px 25px rgba(0,0,0,0.15); z-index: 99999; }
+        #ai-chat-widget.show { display: block; }
+        #chat-toggle-btn { position: fixed; bottom: 20px; right: 20px; width: 55px; height: 55px; background: #0066cc; border-radius: 50%; border: none; cursor: pointer; font-size: 24px; z-index: 99999; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+        .chat-header { background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; padding: 15px; font-weight: bold; display: flex; justify-content: space-between; cursor: pointer; }
+        .chat-messages { height: 300px; overflow-y: auto; padding: 15px; background: #f9f9f9; }
+        .chat-input { display: flex; padding: 10px; border-top: 1px solid #ddd; background: #fff; }
+        .chat-input input { flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 5px; }
+        .chat-input button { padding: 10px 20px; background: #0066cc; color: #fff; border: none; border-radius: 5px; margin-left: 10px; cursor: pointer; }
+        #message-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 99999; display: none; align-items: center; justify-content: center; }
+        #message-modal.show { display: flex; }
+        .modal-content { background: white; padding: 30px; border-radius: 15px; width: 90%; max-width: 400px; }
     </style>
 </head>
 <body>
@@ -103,19 +74,166 @@
         <button class="lang-btn active" onclick="setLang('zh-CN')">中文</button>
         <button class="lang-btn" onclick="setLang('en')">EN</button>
     </div>
-    <header><div class="container"><div class="logo"><i class="fas fa-star"></i> <span class="zh">广交会VIP服务</span><span class="en">Canton Fair VIP</span></div><nav><ul><li><a href="#services"><span class="zh">服务</span><span class="en">Services</span></a></li><li><a href="#interactive"><span class="zh">留言</span><span class="en">Contact</span></a></li><li><a href="#media"><span class="zh">媒体</span><span class="en">Media</span></a></li><li><a href="#testimonials"><span class="zh">评价</span><span class="en">Reviews</span></a></li><li><a href="#process"><span class="zh">流程</span><span class="en">Process</span></a></li><li><a href="#contact"><span class="zh">联系</span><span class="en">Contact</span></a></li></ul></nav></div></header>
-    <section class="hero"><div class="container"><h1><span class="zh">快速找到优质供应商 · 抢占中国市场先机</span><span class="en">Find Quality Suppliers Fast</span></h1><p class="subtitle"><span class="zh">广交会认证服务商 · 10年行业经验</span><span class="en">Canton Fair Certified · 10 Years</span></p><div class="hero-badges"><div class="hero-badge"><i class="fas fa-search"></i> <span class="zh">精准匹配</span><span class="en">Precise</span></div><div class="hero-badge"><i class="fas fa-handshake"></i> <span class="zh">高效谈判</span><span class="en">Efficient</span></div><div class="hero-badge"><i class="fas fa-building"></i> <span class="zh">实地考察</span><span class="en">Factory</span></div><div class="hero-badge"><i class="fas fa-shield-alt"></i> <span class="zh">交易保障</span><span class="en">Guarantee</span></div></div><a href="#interactive" class="cta-button"><span class="zh">立即留言</span><span class="en">Get Started</span></a></div></section>
-    <section class="value-banner"><div class="container"><div class="value-grid"><div class="value-item"><i class="fas fa-bolt"></i><h3><span class="zh">快 - 3天匹配</span><span class="en">Fast</span></h3></div><div class="value-item"><i class="fas fa-check-circle"></i><h3><span class="zh">准 - 真实厂家</span><span class="en">Accurate</span></h3></div><div class="value-item"><i class="fas fa-yen-sign"></i><h3><span class="zh">省 - 无中间商</span><span class="en">Save</span></h3></div><div class="value-item"><i class="fas fa-headset"></i><h3><span class="zh">专 - 1对1服务</span><span class="en">Pro</span></h3></div></div></div></section>
-    <section class="services" id="services"><div class="container"><div class="section-title"><h2><span class="zh">一站式采购解决方案</span><span class="en">Services</span></h2><p><span class="zh">从找供应商到签合同</span><span class="en">One-Stop Solutions</span></p></div><div class="services-grid"><div class="service-card"><div class="service-icon"><i class="fas fa-language"></i></div><h3><span class="zh">专业翻译</span><span class="en">Translation</span></h3><p><span class="zh">商务谈判、技术文档、合同审核，20+语言</span><span class="en">Business, 20+ languages</span></p><div class="service-price">USD 120 <span class="zh">起/天</span><span class="en">UP</span></div></div><div class="service-card"><div class="service-icon"><i class="fas fa-shopping-bag"></i></div><h3><span class="zh">VIP导购</span><span class="en">Sourcing Guide</span></h3><p><span class="zh">展馆全程陪同，精准筛选</span><span class="en">Full accompany</span></p><div class="service-price">USD 150 <span class="zh">起/天</span><span class="en">UP</span></div></div><div class="service-card"><div class="service-icon"><i class="fas fa-plane"></i></div><h3><span class="zh">行程安排</span><span class="en">Itinerary</span></h3><p><span class="zh">酒店/机票/用车</span><span class="en">Hotel, flight</span></p><div class="service-price"><span class="zh">定制</span><span class="en">Custom</span></div></div><div class="service-card"><div class="service-icon"><i class="fas fa-industry"></i></div><h3><span class="zh">工厂考察</span><span class="en">Factory Visit</span></h3><p><span class="zh">预约考察，质量检测</span><span class="en">Quality audit</span></p><div class="service-price">USD 200 <span class="zh">起/次</span><span class="en">UP</span></div></div><div class="service-card"><div class="service-icon"><i class="fas fa-handshake"></i></div><h3><span class="zh">商务谈判</span><span class="en">Negotiation</span></h3><p><span class="zh">价格/合同/条款</span><span class="en">Price, contract</span></p><div class="service-price">USD 150 <span class="zh">起/次</span><span class="en">UP</span></div></div><div class="service-card"><div class="service-icon"><i class="fas fa-truck"></i></div><h3><span class="zh">物流跟进</span><span class="en">Logistics</span></h3><p><span class="zh">生产/清关</span><span class="en">Shipping</span></p><div class="service-price">USD 80 <span class="zh">起/单</span><span class="en">UP</span></div></div></div></div></section>
-    <section class="features"><div class="container"><div class="section-title"><h2><span class="zh">核心优势</span><span class="en">Why Us</span></h2></div><div class="features-grid"><div class="feature-item"><div class="feature-icon"><i class="fas fa-trophy"></i></div><div><h3><span class="zh">官方认证</span><span class="en">Certified</span></h3><p><span class="zh">广交会资质</span><span class="en">Canton Fair</span></p></div></div><div class="feature-item"><div class="feature-icon"><i class="fas fa-users"></i></div><div><h3><span class="zh">10年经验</span><span class="en">10 Years</span></h3><p><span class="zh">1000+买家</span><span class="en">1000+ buyers</span></p></div></div><div class="feature-item"><div class="feature-icon"><i class="fas fa-file-invoice-dollar"></i></div><div><h3><span class="zh">价格透明</span><span class="en">Transparent</span></h3><p><span class="zh">无隐藏费</span><span class="en">No hidden</span></p></div></div><div class="feature-item"><div class="feature-icon"><i class="fas fa-clock"></i></div><div><h3><span class="zh">7×24响应</span><span class="en">24/7</span></h3><p><span class="zh">随时响应</span><span class="en">Always</span></p></div></div><div class="feature-item"><div class="feature-icon"><i class="fas fa-shield-alt"></i></div><div><h3><span class="zh">交易保障</span><span class="en">Secure</span></h3><p><span class="zh">合同规范</span><span class="en">Contract</span></p></div></div><div class="feature-item"><div class="feature-icon"><i class="fas fa-globe"></i></div><div><h3><span class="zh">全球服务</span><span class="en">Global</span></h3><p><span class="zh">50+国家</span><span class="en">50+ countries</span></p></div></div></div></div></section>
-    <section class="interactive" id="interactive"><div class="container"><div class="section-title"><h2><span class="zh">留言互动</span><span class="en">Get In Touch</span></h2><p><span class="zh">选择您的身份</span><span class="en">Choose your role</span></p></div><div class="interactive-grid"><div class="interactive-card"><i class="fas fa-shopping-cart" style="color:#0066cc;"></i><h3><span class="zh">我是买家</span><span class="en">I'm Buyer</span></h3><p><span class="zh">寻找供应商</span><span class="en">Find suppliers</span></p><button class="btn btn-buyer"><span class="zh">留言</span><span class="en">Contact</span></button></div><div class="interactive-card"><i class="fas fa-boxes" style="color:#28a745;"></i><h3><span class="zh">我是卖家</span><span class="en">I'm Seller</span></h3><p><span class="zh">推广产品</span><span class="en">Promote</span></p><button class="btn btn-seller"><span class="zh">留言</span><span class="en">Contact</span></button></div><div class="interactive-card"><i class="fas fa-user-plus" style="color:#fd7e14;"></i><h3><span class="zh">应聘/合作</span><span class="en">Join Us</span></h3><p><span class="zh">加入我们</span><span class="en">Cooperation</span></p><button class="btn btn-partner"><span class="zh">留言</span><span class="en">Contact</span></button></div></div></div></section>
-    <section class="media-section" id="media"><div class="container"><div class="section-title"><h2><span class="zh">关注我们</span><span class="en">Follow Us</span></h2></div><div class="media-grid"><a href="#" class="media-link media-xiaohongshu"><i class="fas fa-book"></i><span>小红书</span></a><a href="#" class="media-link media-twitter"><i class="fab fa-twitter"></i><span>Twitter</span></a><a href="#" class="media-link media-facebook"><i class="fab fa-facebook-f"></i><span>Facebook</span></a><a href="#" class="media-link media-douyin"><i class="fas fa-play"></i><span>抖音</span></a><a href="#" class="media-link media-tiktok"><i class="fab fa-tiktok"></i><span>TikTok</span></a><a href="#" class="media-link media-instagram"><i class="fab fa-inagram"></i><span>Instagram</span></a><a href="#" class="media-link media-youtube"><i class="fab fa-youtube"></i><span>YouTube</span></a><a href="https://wa.me/85246093965" class="media-link media-whatsapp"><i class="fab fa-whatsapp"></i><span>WhatsApp</span></a></div></div></section>
-    <section class="process" id="process"><div class="container"><div class="section-title"><h2><span class="zh">合作流程</span><span class="en">Process</span></h2></div><div class="process-steps"><div class="step"><div class="step-number">1</div><h3><span class="zh">提交需求</span><span class="en">Request</span></h3><p><span class="zh">告诉我们需求</span><span class="en">Tell us needs</span></p></div><div class="step"><div class="step-number">2</div><h3><span class="zh">匹配供应商</span><span class="en">Match</span></h3><p><span class="zh">1-3天筛选</span><span class="en">1-3 days</span></p></div><div class="step"><div class="step-number">3</div><h3><span class="zh">实地考察</span><span class="en">Visit</span></h3><p><span class="zh">专业陪同</span><span class="en">Professional</span></p></div><div class="step"><div class="step-number">4</div><h3><span class="zh">签约合作</span><span class="en">Sign</span></h3><p><span class="zh">谈判签约</span><span class="en">Negotiate</span></p></div></div></div></section>
-    <section class="testimonials" id="testimonials"><div class="container"><div class="section-title"><h2><span class="zh">客户评价</span><span class="en">Reviews</span></h2></div><div class="testimonials-grid"><div class="testimonial"><div class="testimonial-stars">★★★★★</div><p>"<span class="zh">第一次来广交会，3天就找到满意供应商！</span><span class="en">Found supplier in 3 days!</span>"</p><div class="testimonial-header"><div class="testimonial-avatar">M</div><div class="testimonial-info"><h4>Michael T.</h4><span>USA</span></div></div></div><div class="testimonial"><div class="testimonial-stars">★★★★★</div><p>"<span class="zh">工厂考察非常专业，避免被骗风险！</span><span class="en">Professional factory visits!</span>"</p><div class="testimonial-header"><div class="testimonial-avatar">J</div><div class="testimonial-info"><h4>Jean L.</h4><span>France</span></div></div></div><div class="testimonial"><div class="testimonial-stars">★★★★★</div><p>"<span class="zh">服务周到，强烈推荐！</span><span class="en">Highly recommended!</span>"</p><div class="testimonial-header"><div class="testimonial-avatar">A</div><div class="testimonial-info"><h4>Ahmed K.</h4><span>UAE</span></div></div></div></div></div></section>
-    <section class="contact" id="contact"><div class="container"><h2><span class="zh">立即咨询</span><span class="en">Contact Us</span></h2><div class="contact-cards"><div class="contact-card"><i class="fas fa-phone-alt"></i><h3><span class="zh">电话</span><span class="en">Phone</span></h3><p>+86-13823088611</p></div><div class="contact-card"><i class="fab fa-whatsapp"></i><h3>WhatsApp</h3><p>+852-46093965</p></div><div class="contact-card"><i class="fab fa-weixin"></i><h3>微信</h3><p>blackhawkzh</p></div><div class="contact-card"><i class="fas fa-envelope"></i><h3><span class="zh">邮箱</span><span class="en">Email</span></h3><p>1455933248@qq.com</p></div></div><a href="mailto:1455933248@qq.com" class="cta-button"><span class="zh">免费咨询</span><span class="en">Contact Now</span></a></div></section>
-    <footer><div class="container"><p>© 2026 广交会VIP服务 | Canton Fair VIP Services</p></div></footer>
+    <header><div class="container"><div class="logo"><i class="fas fa-star"></i> <span class="zh">广交会VIP服务</span><span class="en">Canton Fair VIP</span></div><nav><ul><li><a href="#services">服务</a></li><li><a href="#contact">联系</a></li></nav></div></header>
+    <section class="hero"><div class="container"><h1>快速找到优质供应商 · 抢占中国市场先机</h1><p class="subtitle">广交会认证服务商 · 10年行业经验</p><a href="#contact" class="cta-button">立即咨询</a></div></section>
+    <section class="value-banner"><div class="container"><div class="value-grid"><div class="value-item"><i class="fas fa-bolt"></i><h3>快 - 3天匹配</h3></div><div class="value-item"><i class="fas fa-check-circle"></i><h3>准 - 真实厂家</h3></div><div class="value-item"><i class="fas fa-yen-sign"></i><h3>省 - 无中间商</h3></div><div class="value-item"><i class="fas fa-headset"></i><h3>专 - 1对1服务</h3></div></div></div></section>
+    <section class="interactive" style="background: linear-gradient(135deg, #667eea, #764ba2); color: white;">
+        <div class="container">
+            <div class="section-title"><h2>🛠️ 数字化工具</h2></div>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 900px; margin: 0 auto;">
+                <a href="https://n8n.cantonfairassist.online" target="_blank" style="text-decoration: none; color: white; background: rgba(255,255,255,0.15); padding: 25px; border-radius: 15px; text-align: center; display: block;">
+                    <i class="fas fa-robot" style="font-size: 40px; color: #ffd700;"></i>
+                    <h3 style="margin: 10px 0;">n8n 自动化</h3>
+                </a>
+                <div onclick="toggleChat()" style="cursor: pointer; background: rgba(255,255,255,0.15); padding: 25px; border-radius: 15px; text-align: center;">
+                    <i class="fas fa-headset" style="font-size: 40px; color: #25d366;"></i>
+                    <h3 style="margin: 10px 0;">AI 客服</h3>
+                </div>
+                <a href="https://wa.me/85246093965" target="_blank" style="text-decoration: none; color: white; background: rgba(255,255,255,0.15); padding: 25px; border-radius: 15px; text-align: center; display: block;">
+                    <i class="fab fa-whatsapp" style="font-size: 40px; color: #25d366;"></i>
+                    <h3 style="margin: 10px 0;">WhatsApp</h3>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="services" id="services"><div class="container"><div class="section-title"><h2>一站式采购解决方案</h2></div><div class="services-grid"><div class="service-card"><div class="service-icon"><i class="fas fa-language"></i></div><h3>专业翻译</h3><p>商务谈判、技术文档、合同审核，20+语言</p><div class="service-price">USD 120起/天</div></div><div class="service-card"><div class="service-icon"><i class="fas fa-shopping-bag"></i></div><h3>VIP导购</h3><p>展馆全程陪同，精准筛选</p><div class="service-price">USD 150起/天</div></div><div class="service-card"><div class="service-icon"><i class="fas fa-plane"></i></div><h3>行程安排</h3><p>酒店/机票/用车</p><div class="service-price">定制</div></div><div class="service-card"><div class="service-icon"><i class="fas fa-industry"></i></div><h3>工厂考察</h3><p>预约考察，质量检测</p><div class="service-price">USD 200起/次</div></div></div></div></section>
+    <section class="interactive"><div class="container"><div class="section-title"><h2>留言互动</h2><p>选择您的身份</p></div><div class="interactive-grid"><div class="interactive-card" onclick="showMessageForm()"><i class="fas fa-shopping-cart" style="font-size:40px;color:#0066cc;"></i><h3>我是买家</h3><button class="btn btn-buyer">留言</button></div><div class="interactive-card" onclick="showMessageForm()"><i class="fas fa-boxes" style="font-size:40px;color:#28a745;"></i><h3>我是卖家</h3><button class="btn btn-seller">留言</button></div><div class="interactive-card" onclick="showMessageForm()"><i class="fas fa-user-plus" style="font-size:40px;color:#fd7e14;"></i><h3>应聘/合作</h3><button class="btn btn-partner">留言</button></div></div></div></section>
+    <section class="contact" id="contact"><div class="container"><h2>立即咨询</h2><div class="contact-cards"><div class="contact-card"><i class="fas fa-phone-alt"></i><h3>电话</h3><p>+86-13823088611</p></div><div class="contact-card"><i class="fab fa-whatsapp"></i><h3>WhatsApp</h3><p>+852-46093965</p></div><div class="contact-card"><i class="fab fa-weixin"></i><h3>微信</h3><p>blackhawkzh</p></div><div class="contact-card"><i class="fas fa-envelope"></i><h3>邮箱</h3><p>1455933248@qq.com</p></div></div><a href="mailto:1455933248@qq.com" class="cta-button">免费咨询</a></div></section>
+    <footer><div class="container"><p>© 2026 广交会VIP服务</p></div></footer>
+    
+    <!-- AI Chat -->
+    <div id="ai-chat-widget">
+      <div class="chat-header" onclick="toggleChat()">
+        <span>💬 AI客服</span>
+        <span onclick="toggleChat()">✕</span>
+      </div>
+      <div class="chat-messages" id="chat-messages">
+        <div style="background:#fff;padding:12px;border-radius:12px;margin-bottom:10px;">👋 您好！欢迎咨询广交会VIP服务！<br><br>请告诉我您的需求</div>
+      </div>
+      <div class="chat-input">
+        <input type="text" id="chat-input" placeholder="请输入问题..." onkeyup="if(event.key==='Enter')sendMessage()">
+        <button onclick="sendMessage()">发送</button>
+      </div>
+    </div>
+    <button id="chat-toggle-btn" onclick="toggleChat()">💬</button>
+    
+    <!-- Message Modal -->
+    <div id="message-modal">
+        <div class="modal-content">
+            <h3 style="color:#003366;margin-bottom:20px;">💬 留言给我们</h3>
+            <input type="text" id="msg-name" placeholder="您的姓名（选填）" style="width:100%;padding:12px;margin-bottom:15px;border:1px solid #ddd;border-radius:8px;">
+            <input type="text" id="msg-contact" placeholder="联系方式（必填）*" style="width:100%;padding:12px;margin-bottom:15px;border:1px solid #ddd;border-radius:8px;">
+            <textarea id="msg-content" placeholder="请输入留言内容..." rows="4" style="width:100%;padding:12px;margin-bottom:15px;border:1px solid #ddd;border-radius:8px;resize:none;"></textarea>
+            <div style="display:flex;gap:10px;">
+                <button onclick="submitMessage()" style="flex:1;padding:12px;background:#0066cc;color:white;border:none;border-radius:8px;cursor:pointer;">提交</button>
+                <button onclick="closeMessageForm()" style="flex:1;padding:12px;background:#ccc;color:#333;border:none;border-radius:8px;cursor:pointer;">取消</button>
+            </div>
+        </div>
+    </div>
+
     <script>
-    function setLang(lang) { document.documentElement.lang = lang; document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active')); event.target.classList.add('active'); }
+    // AI客服知识库
+    var responses = {
+        "玩具": "🧸 玩具产品在第二期（4月23-27日），位于B区展馆。",
+        "电子": "📱 电子产品在第一期（4月15-19日），位于A区展馆。",
+        "家电": "📺 家电产品在第一期（4月15-19日），位于A区展馆。",
+        "机械": "⚙️ 机械产品在第一期（4月15-19日），位于A区展馆。",
+        "建材": "🏗️ 建材产品在第一期（4月15-19日），位于A区展馆。",
+        "陶瓷": "🏺 陶瓷产品在第二期（4月23-27日），位于B区展馆。",
+        "家居": "🏠 家居产品在第二期（4月23-27日），位于B区展馆。",
+        "礼品": "🎁 礼品产品在第二期（4月23-27日），位于B区展馆。",
+        "服装": "👔 服装产品在第二期和第三期，位于C区展馆。",
+        "纺织": "🧵 纺织产品在第二期和第三期，位于C区展馆。",
+        "食品": "🍜 食品产品在第三期（4月底-5月初），位于D区展馆。",
+        "医药": "💊 医药产品在第三期（4月底-5月初），位于D区展馆。",
+        "春交会": "📅 2026年春交会: 4月15日-5月5日。",
+        "秋交会": "📅 2026年秋交会: 10月15日-11月4日。",
+        "展馆": "📍 广州琶洲国际会展中心，地铁8号线琶洲站。",
+        "琶洲": "📍 广州琶洲国际会展中心，地铁8号线琶洲站。",
+        "定制行程": "好的！请告诉我您的到达日期和需要的服务",
+        "行程安排": "好的！请告诉我您的到达日期和需要的服务",
+        "去广州": "✈️ 请告诉我您的出发城市和日期",
+        "机票": "✈️ 请告诉我出发城市和日期",
+        "酒店": "🏨 琶洲附近推荐：香格里拉、保利洲际",
+        "翻译": "🗣️ 500-800元/天，加微信: blackhawkzh",
+        "导购": "🛒 800-1200元/天，加微信: blackhawkzh",
+        "工厂": "🏭 600-1000元/次，加微信: blackhawkzh",
+        "价格": "💰 翻译500-800元，导购800-1200元，工厂600-1000元",
+        "联系": "📞 微信: blackhawkzh, WhatsApp: +852-46093965",
+        "微信": "📞 微信: blackhawkzh",
+        "whatsapp": "📞 WhatsApp: +852-46093965",
+        "官方": "✅ 广交会认证服务商，10年行业经验",
+        "靠谱": "✅ 广交会认证服务商，10年行业经验",
+        "预约": "📞 请加微信: blackhawkzh",
+        "你好": "👋 您好！欢迎咨询广交会VIP服务！",
+        "谢谢": "😊 不客气！祝您广交会之行顺利！"
+    };
+    
+    function getAnswer(q) {
+        if (!q) return "您好！请告诉我您想咨询什么？";
+        q = q.toLowerCase();
+        var keys = Object.keys(responses).sort(function(a, b) { return b.length - a.length; });
+        for (var i = 0; i < keys.length; i++) {
+            if (q.indexOf(keys[i].toLowerCase()) !== -1) return responses[keys[i]];
+        }
+        return "感谢咨询！请告诉我您需要什么服务？";
+    }
+    
+    function toggleChat() {
+        var widget = document.getElementById('ai-chat-widget');
+        var btn = document.getElementById('chat-toggle-btn');
+        if (widget.classList.contains('show')) {
+            widget.classList.remove('show');
+        } else {
+            widget.classList.add('show');
+        }
+    }
+    
+    function sendMessage() {
+        var input = document.getElementById('chat-input');
+        var msg = input.value.trim();
+        if (!msg) return;
+        var msgs = document.getElementById('chat-messages');
+        msgs.innerHTML += '<div style="background:#fff;padding:12px;border-radius:12px;margin-bottom:10px;">' + msg + '</div>';
+        setTimeout(function() {
+            var answer = getAnswer(msg);
+            msgs.innerHTML += '<div style="background:#f0f0f0;padding:12px;border-radius:12px;margin-bottom:10px;">' + answer + '</div>';
+            msgs.scrollTop = msgs.scrollHeight;
+        }, 500);
+        input.value = '';
+        msgs.scrollTop = msgs.scrollHeight;
+    }
+    
+    function showMessageForm() {
+        document.getElementById('message-modal').classList.add('show');
+    }
+    
+    function closeMessageForm() {
+        document.getElementById('message-modal').classList.remove('show');
+    }
+    
+    function submitMessage() {
+        var name = document.getElementById('msg-name').value;
+        var contact = document.getElementById('msg-contact').value;
+        var message = document.getElementById('msg-content').value;
+        if (!contact) { alert('请填写联系方式！'); return; }
+        if (!message) { alert('请填写留言内容！'); return; }
+        
+        // 发送数据
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'https://cantonfairassist.online/message-api.php', true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(JSON.stringify({name: name, contact: contact, message: message}));
+        
+        alert('留言成功！我们会尽快联系您！');
+        closeMessageForm();
+    }
+    
+    function setLang(lang) {
+        document.documentElement.lang = lang;
+        document.querySelectorAll('.lang-btn').forEach(function(btn) { btn.classList.remove('active'); });
+        event.target.classList.add('active');
+    }
     </script>
 </body>
 </html>
