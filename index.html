@@ -7,233 +7,416 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.6; color: #333; background: #f5f7fa; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        .lang-switch { position: fixed; top: 20px; right: 20px; z-index: 1000; background: white; border-radius: 25px; padding: 5px; box-shadow: 0 4px 15px rgba(0,0,0,0.15); display: flex; gap: 5px; }
-        .lang-btn { padding: 8px 16px; border: none; background: transparent; cursor: pointer; border-radius: 20px; font-size: 14px; font-weight: 500; }
-        .lang-btn.active { background: #0066cc; color: white; }
-        header { background: linear-gradient(135deg, #003366 0%, #0066cc 100%); color: white; padding: 15px 0; position: sticky; top: 0; z-index: 100; }
-        header .container { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 24px; font-weight: bold; }
-        .logo i { color: #ffd700; }
-        nav ul { display: flex; list-style: none; gap: 25px; }
-        nav a { color: white; text-decoration: none; font-weight: 500; }
-        nav a:hover { color: #ffd700; }
-        .hero { background: linear-gradient(135deg, rgba(0,51,102,0.92) 0%, rgba(0,102,204,0.85) 100%), url('https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1920'); color: white; padding: 130px 0; text-align: center; }
-        .hero h1 { font-size: 48px; margin-bottom: 20px; }
-        .hero .subtitle { font-size: 17px; margin-bottom: 30px; color: #ffd700; }
-        .cta-button { display: inline-block; background: linear-gradient(135deg, #ffd700, #ffaa00); color: #003366; padding: 16px 45px; border-radius: 50px; font-size: 18px; font-weight: bold; text-decoration: none; margin: 5px; }
-        .value-banner { background: linear-gradient(135deg, #ffd700, #ffaa00); padding: 35px 0; }
-        .value-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; text-align: center; }
-        .value-item { color: #003366; }
-        .value-item i { font-size: 28px; margin-bottom: 8px; }
-        .services, .features, .interactive, .process, .testimonials, .contact { padding: 70px 0; }
-        .services, .testimonials { background: white; }
-        .features, .process { background: #f5f7fa; }
-        .section-title { text-align: center; margin-bottom: 45px; }
-        .section-title h2 { font-size: 34px; color: #003366; margin-bottom: 12px; }
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
-        .service-card { background: white; padding: 35px 25px; border-radius: 18px; box-shadow: 0 8px 30px rgba(0,0,0,0.07); text-align: center; }
-        .service-icon { width: 70px; height: 70px; background: linear-gradient(135deg, #0066cc, #003366); border-radius: 18px; display: flex; align-items: center; justify-content: center; font-size: 30px; margin: 0 auto 18px; color: white; }
-        .service-card h3 { font-size: 22px; color: #003366; margin-bottom: 12px; }
-        .service-price { font-size: 24px; color: #0066cc; font-weight: bold; }
-        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
-        .feature-item { display: flex; gap: 18px; background: white; padding: 22px; border-radius: 14px; }
-        .feature-icon { width: 55px; height: 55px; background: linear-gradient(135deg, #0066cc, #004488); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 22px; }
-        .interactive-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
-        .interactive-card { background: white; padding: 30px; border-radius: 15px; text-align: center; cursor: pointer; transition: all 0.3s; border: 2px solid transparent; }
-        .interactive-card:hover { border-color: #0066cc; transform: translateY(-5px); }
-        .btn { display: inline-block; padding: 12px 30px; border-radius: 25px; text-decoration: none; font-weight: 600; color: white; cursor: pointer; border: none; }
-        .btn-buyer { background: #0066cc; }
-        .btn-seller { background: #28a745; }
-        .btn-partner { background: #fd7e14; }
-        .media-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 12px; }
-        .media-link { display: flex; flex-direction: column; align-items: center; padding: 20px; border-radius: 12px; text-decoration: none; color: white; }
-        .media-whatsapp { background: #25d366; }
-        .contact-cards { display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; }
-        .contact-card { background: rgba(255,255,255,0.1); padding: 22px 32px; border-radius: 14px; }
-        .contact-card i { font-size: 26px; margin-bottom: 10px; color: #ffd700; }
-        footer { background: #001a33; color: white; padding: 22px 0; text-align: center; }
-        [lang="en"] .zh { display: none; }
-        [lang="zh-CN"] .en { display: none; }
-        #ai-chat-widget { display: none; position: fixed; bottom: 90px; right: 20px; width: 350px; height: 450px; background: #fff; border-radius: 15px; box-shadow: 0 5px 25px rgba(0,0,0,0.15); z-index: 99999; }
-        #ai-chat-widget.show { display: block; }
-        #chat-toggle-btn { position: fixed; bottom: 20px; right: 20px; width: 55px; height: 55px; background: #0066cc; border-radius: 50%; border: none; cursor: pointer; font-size: 24px; z-index: 99999; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
-        .chat-header { background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; padding: 15px; font-weight: bold; display: flex; justify-content: space-between; cursor: pointer; }
-        .chat-messages { height: 300px; overflow-y: auto; padding: 15px; background: #f9f9f9; }
-        .chat-input { display: flex; padding: 10px; border-top: 1px solid #ddd; background: #fff; }
-        .chat-input input { flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 5px; }
-        .chat-input button { padding: 10px 20px; background: #0066cc; color: #fff; border: none; border-radius: 5px; margin-left: 10px; cursor: pointer; }
-        #message-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 99999; display: none; align-items: center; justify-content: center; }
-        #message-modal.show { display: flex; }
-        .modal-content { background: white; padding: 30px; border-radius: 15px; width: 90%; max-width: 400px; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.7; color: #1a1a1a; background: #f5f5f5; }
+        
+        /* Hero */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .hero-bg {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: url('images/bg.jpg') center/cover no-repeat;
+            filter: blur(5px) brightness(0.7);
+            transform: scale(1.05);
+        }
+        .hero-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(180deg, rgba(0,30,60,0.75) 0%, rgba(0,50,100,0.65) 100%);
+        }
+        .hero-content {
+            position: relative; z-index: 2; text-align: center; color: white; padding: 40px 20px; max-width: 800px;
+        }
+        .hero h1 { font-size: 48px; font-weight: 600; letter-spacing: 2px; margin-bottom: 20px; }
+        .hero .subtitle { font-size: 18px; color: #ffd700; margin-bottom: 35px; letter-spacing: 1px; }
+        
+        /* Buttons */
+        .btn-group { display: flex; gap: 20px; justify-content: center; }
+        .btn {
+            display: inline-block;
+            padding: 14px 36px;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .btn-primary {
+            background: #ffd700;
+            color: #002244;
+        }
+        .btn-primary:hover { background: #ffdd44; transform: translateY(-2px); }
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255,255,255,0.5);
+        }
+        .btn-secondary:hover { border-color: white; background: rgba(255,255,255,0.1); }
+        
+        /* Section Titles */
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+        .section-title h2 {
+            font-size: 28px;
+            color: #002244;
+            font-weight: 500;
+            letter-spacing: 3px;
+        }
+        .section-title .line {
+            width: 60px;
+            height: 3px;
+            background: #ffd700;
+            margin: 15px auto 0;
+        }
+        
+        /* Gallery - 2x2 Grid */
+        .gallery { padding: 70px 0; background: white; }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .gallery-item {
+            position: relative;
+            aspect-ratio: 16/10;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
+        .gallery-item .caption {
+            position: absolute; bottom: 0; left: 0; right: 0;
+            padding: 20px;
+            background: linear-gradient(transparent, rgba(0,20,40,0.85));
+            color: white;
+            font-size: 16px;
+            font-weight: 500;
+        }
+        
+        /* Services - 3 Columns */
+        .services { padding: 70px 0; background: #f8f9fa; }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .service-card {
+            background: white;
+            padding: 40px 25px;
+            border-radius: 6px;
+            text-align: center;
+            border: 1px solid #e0e0e0;
+        }
+        .service-card:hover { border-color: #0066cc; box-shadow: 0 5px 20px rgba(0,0,0,0.08); }
+        .service-icon {
+            width: 60px; height: 60px;
+            background: #002244;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 24px; color: #ffd700;
+        }
+        .service-card h3 { font-size: 18px; color: #002244; margin-bottom: 12px; font-weight: 500; }
+        .service-card p { color: #666; font-size: 14px; margin-bottom: 15px; }
+        .service-price { font-size: 20px; color: #0066cc; font-weight: 600; }
+        
+        /* Value Banner */
+        .value-banner { background: #002244; padding: 45px 0; }
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .value-item i { font-size: 26px; color: #ffd700; margin-bottom: 12px; display: block; }
+        .value-item { color: white; }
+        .value-item .label { font-size: 16px; font-weight: 500; }
+        .value-item .sub { font-size: 13px; color: rgba(255,255,255,0.7); margin-top: 4px; }
+        
+        /* Interactive - 3 Columns */
+        .interactive { padding: 70px 0; background: white; }
+        .interactive-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .interactive-card {
+            background: #f8f9fa;
+            padding: 35px 20px;
+            border-radius: 6px;
+            text-align: center;
+            border: 1px solid #e0e0e0;
+            transition: all 0.3s;
+        }
+        .interactive-card:hover { border-color: #002244; background: white; }
+        .interactive-card i { font-size: 32px; margin-bottom: 15px; }
+        .interactive-card h3 { font-size: 16px; color: #002244; margin-bottom: 8px; font-weight: 500; }
+        .interactive-card p { font-size: 14px; color: #666; margin-bottom: 15px; }
+        
+        /* Contact */
+        .contact { background: linear-gradient(180deg, #002244 0%, #003366 100%); color: white; padding: 60px 0; }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            text-align: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .contact-item i { font-size: 24px; color: #ffd700; margin-bottom: 12px; display: block; }
+        .contact-item h3 { font-size: 16px; font-weight: 500; margin-bottom: 8px; }
+        .contact-item p { font-size: 14px; opacity: 0.9; }
+        
+        /* Lang Switch */
+        .lang-switch {
+            position: fixed; top: 20px; right: 20px; z-index: 999;
+            background: rgba(255,255,255,0.95);
+            border-radius: 4px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .lang-btn {
+            padding: 8px 16px; border: none; background: transparent;
+            cursor: pointer; font-size: 13px; font-weight: 500;
+        }
+        .lang-btn.active { background: #002244; color: white; }
+        
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 32px; }
+            .gallery-grid, .services-grid, .interactive-grid, .contact-grid, .value-grid { grid-template-columns: 1fr; }
+            .btn-group { flex-direction: column; align-items: center; }
+        }
     </style>
 </head>
 <body>
+    <!-- Lang Switch -->
     <div class="lang-switch">
         <button class="lang-btn active" onclick="setLang('zh-CN')">中文</button>
         <button class="lang-btn" onclick="setLang('en')">EN</button>
     </div>
-    <header><div class="container"><div class="logo"><i class="fas fa-star"></i> <span class="zh">广交会VIP服务</span><span class="en">Canton Fair VIP</span></div><nav><ul><li><a href="#services">服务</a></li><li><a href="#contact">联系</a></li></nav></div></header>
-    <section class="hero"><div class="container"><h1>快速找到优质供应商 · 抢占中国市场先机</h1><p class="subtitle">广交会认证服务商 · 10年行业经验</p><a href="#contact" class="cta-button">立即咨询</a></div></section>
-    <section class="value-banner"><div class="container"><div class="value-grid"><div class="value-item"><i class="fas fa-bolt"></i><h3>快 - 3天匹配</h3></div><div class="value-item"><i class="fas fa-check-circle"></i><h3>准 - 真实厂家</h3></div><div class="value-item"><i class="fas fa-yen-sign"></i><h3>省 - 无中间商</h3></div><div class="value-item"><i class="fas fa-headset"></i><h3>专 - 1对1服务</h3></div></div></div></section>
-    <section class="interactive" style="background: linear-gradient(135deg, #667eea, #764ba2); color: white;">
-        <div class="container">
-            <div class="section-title"><h2>🛠️ 数字化工具</h2></div>
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 900px; margin: 0 auto;">
-                <a href="https://n8n.cantonfairassist.online" target="_blank" style="text-decoration: none; color: white; background: rgba(255,255,255,0.15); padding: 25px; border-radius: 15px; text-align: center; display: block;">
-                    <i class="fas fa-robot" style="font-size: 40px; color: #ffd700;"></i>
-                    <h3 style="margin: 10px 0;">n8n 自动化</h3>
-                </a>
-                <div onclick="toggleChat()" style="cursor: pointer; background: rgba(255,255,255,0.15); padding: 25px; border-radius: 15px; text-align: center;">
-                    <i class="fas fa-headset" style="font-size: 40px; color: #25d366;"></i>
-                    <h3 style="margin: 10px 0;">AI 客服</h3>
-                </div>
-                <a href="https://wa.me/85246093965" target="_blank" style="text-decoration: none; color: white; background: rgba(255,255,255,0.15); padding: 25px; border-radius: 15px; text-align: center; display: block;">
-                    <i class="fab fa-whatsapp" style="font-size: 40px; color: #25d366;"></i>
-                    <h3 style="margin: 10px 0;">WhatsApp</h3>
-                </a>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 id="hero-title">广交会VIP服务</h1>
+            <p class="subtitle" id="hero-subtitle">您的中国采购专家 · 翻译 · 导购 · 工厂考察</p>
+            <div class="btn-group">
+                <a href="#contact" class="btn btn-primary" id="cta-book">立即预约</a>
+                <a href="#services" class="btn btn-secondary" id="cta-more">了解更多</a>
             </div>
         </div>
     </section>
-    <section class="services" id="services"><div class="container"><div class="section-title"><h2>一站式采购解决方案</h2></div><div class="services-grid"><div class="service-card"><div class="service-icon"><i class="fas fa-language"></i></div><h3>专业翻译</h3><p>商务谈判、技术文档、合同审核，20+语言</p><div class="service-price">USD 120起/天</div></div><div class="service-card"><div class="service-icon"><i class="fas fa-shopping-bag"></i></div><h3>VIP导购</h3><p>展馆全程陪同，精准筛选</p><div class="service-price">USD 150起/天</div></div><div class="service-card"><div class="service-icon"><i class="fas fa-plane"></i></div><h3>行程安排</h3><p>酒店/机票/用车</p><div class="service-price">定制</div></div><div class="service-card"><div class="service-icon"><i class="fas fa-industry"></i></div><h3>工厂考察</h3><p>预约考察，质量检测</p><div class="service-price">USD 200起/次</div></div></div></div></section>
-    <section class="interactive"><div class="container"><div class="section-title"><h2>留言互动</h2><p>选择您的身份</p></div><div class="interactive-grid"><div class="interactive-card" onclick="showMessageForm()"><i class="fas fa-shopping-cart" style="font-size:40px;color:#0066cc;"></i><h3>我是买家</h3><button class="btn btn-buyer">留言</button></div><div class="interactive-card" onclick="showMessageForm()"><i class="fas fa-boxes" style="font-size:40px;color:#28a745;"></i><h3>我是卖家</h3><button class="btn btn-seller">留言</button></div><div class="interactive-card" onclick="showMessageForm()"><i class="fas fa-user-plus" style="font-size:40px;color:#fd7e14;"></i><h3>应聘/合作</h3><button class="btn btn-partner">留言</button></div></div></div></section>
-    <section class="contact" id="contact"><div class="container"><h2>立即咨询</h2><div class="contact-cards"><div class="contact-card"><i class="fas fa-phone-alt"></i><h3>电话</h3><p>+86-13823088611</p></div><div class="contact-card"><i class="fab fa-whatsapp"></i><h3>WhatsApp</h3><p>+852-46093965</p></div><div class="contact-card"><i class="fab fa-weixin"></i><h3>微信</h3><p>blackhawkzh</p></div><div class="contact-card"><i class="fas fa-envelope"></i><h3>邮箱</h3><p>1455933248@qq.com</p></div></div><a href="mailto:1455933248@qq.com" class="cta-button">免费咨询</a></div></section>
-    <footer><div class="container"><p>© 2026 广交会VIP服务</p></div></footer>
-    
-    <!-- AI Chat -->
-    <div id="ai-chat-widget">
-      <div class="chat-header" onclick="toggleChat()">
-        <span>💬 AI客服</span>
-        <span onclick="toggleChat()">✕</span>
-      </div>
-      <div class="chat-messages" id="chat-messages">
-        <div style="background:#fff;padding:12px;border-radius:12px;margin-bottom:10px;">👋 您好！欢迎咨询广交会VIP服务！<br><br>请告诉我您的需求</div>
-      </div>
-      <div class="chat-input">
-        <input type="text" id="chat-input" placeholder="请输入问题..." onkeyup="if(event.key==='Enter')sendMessage()">
-        <button onclick="sendMessage()">发送</button>
-      </div>
-    </div>
-    <button id="chat-toggle-btn" onclick="toggleChat()">💬</button>
-    
-    <!-- Message Modal -->
-    <div id="message-modal">
-        <div class="modal-content">
-            <h3 style="color:#003366;margin-bottom:20px;">💬 留言给我们</h3>
-            <input type="text" id="msg-name" placeholder="您的姓名（选填）" style="width:100%;padding:12px;margin-bottom:15px;border:1px solid #ddd;border-radius:8px;">
-            <input type="text" id="msg-contact" placeholder="联系方式（必填）*" style="width:100%;padding:12px;margin-bottom:15px;border:1px solid #ddd;border-radius:8px;">
-            <textarea id="msg-content" placeholder="请输入留言内容..." rows="4" style="width:100%;padding:12px;margin-bottom:15px;border:1px solid #ddd;border-radius:8px;resize:none;"></textarea>
-            <div style="display:flex;gap:10px;">
-                <button onclick="submitMessage()" style="flex:1;padding:12px;background:#0066cc;color:white;border:none;border-radius:8px;cursor:pointer;">提交</button>
-                <button onclick="closeMessageForm()" style="flex:1;padding:12px;background:#ccc;color:#333;border:none;border-radius:8px;cursor:pointer;">取消</button>
+
+    <!-- Gallery - 2x2 -->
+    <section class="gallery">
+        <div class="section-title">
+            <h2>服务实景</h2>
+            <div class="line"></div>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="images/booth.jpg" alt="展位现场">
+                <div class="caption">📍 展位现场</div>
             </div>
+            <div class="gallery-item">
+                <img src="images/negotiation.jpg" alt="商务洽谈">
+                <div class="caption">🤝 商务洽谈</div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/footflow.jpg" alt="广交会展厅">
+                <div class="caption">👥 客流如潮</div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/translation.jpg" alt="翻译服务">
+                <div class="caption">🗣️ 专业翻译</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services - 3 Columns -->
+    <section class="services" id="services">
+        <div class="section-title">
+            <h2>服务项目</h2>
+            <div class="line"></div>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-language"></i></div>
+                <h3>专业翻译</h3>
+                <p>英语、法语、德语、阿拉伯语等多语言服务</p>
+                <div class="service-price">¥500-800/天</div>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-shopping-cart"></i></div>
+                <h3>VIP导购</h3>
+                <p>带您逛展馆，筛选优质产品</p>
+                <div class="service-price">¥800-1200/天</div>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-industry"></i></div>
+                <h3>工厂考察</h3>
+                <p>实地考察供应商工厂</p>
+                <div class="service-price">¥600-1000/次</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Banner - 4 Columns -->
+    <section class="value-banner">
+        <div class="value-grid">
+            <div class="value-item">
+                <i class="fas fa-clock"></i>
+                <div class="label">7×24小时</div>
+                <div class="sub">随时响应</div>
+            </div>
+            <div class="value-item">
+                <i class="fas fa-shield-alt"></i>
+                <div class="label">诚信可靠</div>
+                <div class="sub">品质保障</div>
+            </div>
+            <div class="value-item">
+                <i class="fas fa-user-tie"></i>
+                <div class="label">专业团队</div>
+                <div class="sub">经验丰富</div>
+            </div>
+            <div class="value-item">
+                <i class="fas fa-file-invoice-dollar"></i>
+                <div class="label">价格透明</div>
+                <div class="sub">无隐藏费用</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive - 3 Columns + n8n -->
+    <section class="interactive" id="interactive">
+        <div class="section-title">
+            <h2>留言互动</h2>
+            <div class="line"></div>
+        </div>
+        <div class="interactive-grid">
+            <div class="interactive-card">
+                <i class="fas fa-user" style="color:#0066cc;"></i>
+                <h3>我是买家</h3>
+                <p>需要采购服务</p>
+                <span class="btn btn-primary" style="padding:8px 20px;font-size:14px;">立即留言</span>
+            </div>
+            <div class="interactive-card">
+                <i class="fas fa-store" style="color:#28a745;"></i>
+                <h3>我是卖家</h3>
+                <p>需要推广服务</p>
+                <span class="btn" style="background:#28a745;color:white;padding:8px 20px;font-size:14px;">立即留言</span>
+            </div>
+            <div class="interactive-card">
+                <i class="fas fa-handshake" style="color:#fd7e14;"></i>
+                <h3>应聘合作</h3>
+                <p>加入我们的团队</p>
+                <span class="btn" style="background:#fd7e14;color:white;padding:8px 20px;font-size:14px;">立即留言</span>
+            </div>
+        </div>
+        <!-- n8n & WhatsApp Buttons -->
+        <div style="text-align:center;margin-top:40px;">
+            <a href="https://n8n.cantonfairassist.online" target="_blank" class="btn" style="background:#002244;color:white;padding:12px 28px;font-size:15px;margin-right:15px;">
+                <i class="fas fa-robot"></i> n8n工作流
+            </a>
+            <a href="https://wa.me/85246093965" target="_blank" class="btn" style="background:#25D366;color:white;padding:12px 28px;font-size:15px;">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <!-- Contact - 4 Columns -->
+    <section class="contact" id="contact">
+        <div class="section-title">
+            <h2 style="color:white;">联系我们</h2>
+            <div class="line"></div>
+        </div>
+        <div class="contact-grid">
+            <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <h3>电话</h3>
+                <p>+86 138-2308-8611</p>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <h3>邮箱</h3>
+                <p>1455933248@qq.com</p>
+            </div>
+            <div class="contact-item">
+                <i class="fab fa-weixin"></i>
+                <h3>微信</h3>
+                <p>blackhawkzh</p>
+            </div>
+            <div class="contact-item">
+                <i class="fab fa-whatsapp"></i>
+                <h3>WhatsApp</h3>
+                <p>+852 4609-3965</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Chat -->
+    <div id="chat-toggle-btn" onclick="toggleChat()" style="position:fixed;bottom:30px;right:30px;width:60px;height:60px;background:#002244;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 5px 20px rgba(0,34,68,0.4);z-index:9998;">
+        <i class="fas fa-headset" style="color:#ffd700;font-size:24px;"></i>
+    </div>
+    <div id="ai-chat-widget" style="position:fixed;bottom:110px;right:30px;width:350px;max-height:420px;background:white;border-radius:8px;box-shadow:0 10px 40px rgba(0,0,0,0.15);z-index:9999;display:none;flex-direction:column;">
+        <div style="background:#002244;color:white;padding:15px;border-radius:8px 8px 0 0;">
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+                <span style="font-size:15px;font-weight:500;">🤖 AI客服</span>
+                <i onclick="toggleChat()" style="cursor:pointer;font-size:16px;">✕</i>
+            </div>
+        </div>
+        <div id="chat-messages" style="flex:1;padding:15px;overflow-y:auto;min-height:260px;"></div>
+        <div style="padding:12px;border-top:1px solid #eee;display:flex;gap:8px;">
+            <input id="chat-input" type="text" placeholder="请输入您的问题..." style="flex:1;padding:10px;border:1px solid #ddd;border-radius:4px;outline:none;font-size:14px;">
+            <button onclick="sendMessage()" style="background:#002244;color:white;border:none;padding:10px 16px;border-radius:4px;cursor:pointer;">发送</button>
         </div>
     </div>
 
     <script>
-    // AI客服知识库
-    var responses = {
-        "玩具": "🧸 玩具产品在第二期（4月23-27日），位于B区展馆。",
-        "电子": "📱 电子产品在第一期（4月15-19日），位于A区展馆。",
-        "家电": "📺 家电产品在第一期（4月15-19日），位于A区展馆。",
-        "机械": "⚙️ 机械产品在第一期（4月15-19日），位于A区展馆。",
-        "建材": "🏗️ 建材产品在第一期（4月15-19日），位于A区展馆。",
-        "陶瓷": "🏺 陶瓷产品在第二期（4月23-27日），位于B区展馆。",
-        "家居": "🏠 家居产品在第二期（4月23-27日），位于B区展馆。",
-        "礼品": "🎁 礼品产品在第二期（4月23-27日），位于B区展馆。",
-        "服装": "👔 服装产品在第二期和第三期，位于C区展馆。",
-        "纺织": "🧵 纺织产品在第二期和第三期，位于C区展馆。",
-        "食品": "🍜 食品产品在第三期（4月底-5月初），位于D区展馆。",
-        "医药": "💊 医药产品在第三期（4月底-5月初），位于D区展馆。",
-        "春交会": "📅 2026年春交会: 4月15日-5月5日。",
-        "秋交会": "📅 2026年秋交会: 10月15日-11月4日。",
-        "展馆": "📍 广州琶洲国际会展中心，地铁8号线琶洲站。",
-        "琶洲": "📍 广州琶洲国际会展中心，地铁8号线琶洲站。",
-        "定制行程": "好的！请告诉我您的到达日期和需要的服务",
-        "行程安排": "好的！请告诉我您的到达日期和需要的服务",
-        "去广州": "✈️ 请告诉我您的出发城市和日期",
-        "机票": "✈️ 请告诉我出发城市和日期",
-        "酒店": "🏨 琶洲附近推荐：香格里拉、保利洲际",
-        "翻译": "🗣️ 500-800元/天，加微信: blackhawkzh",
-        "导购": "🛒 800-1200元/天，加微信: blackhawkzh",
-        "工厂": "🏭 600-1000元/次，加微信: blackhawkzh",
-        "价格": "💰 翻译500-800元，导购800-1200元，工厂600-1000元",
-        "联系": "📞 微信: blackhawkzh, WhatsApp: +852-46093965",
-        "微信": "📞 微信: blackhawkzh",
-        "whatsapp": "📞 WhatsApp: +852-46093965",
-        "官方": "✅ 广交会认证服务商，10年行业经验",
-        "靠谱": "✅ 广交会认证服务商，10年行业经验",
-        "预约": "📞 请加微信: blackhawkzh",
-        "你好": "👋 您好！欢迎咨询广交会VIP服务！",
-        "谢谢": "😊 不客气！祝您广交会之行顺利！"
-    };
-    
-    function getAnswer(q) {
-        if (!q) return "您好！请告诉我您想咨询什么？";
-        q = q.toLowerCase();
-        var keys = Object.keys(responses).sort(function(a, b) { return b.length - a.length; });
-        for (var i = 0; i < keys.length; i++) {
-            if (q.indexOf(keys[i].toLowerCase()) !== -1) return responses[keys[i]];
+        function setLang(lang) {
+            document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+            event.target.classList.add('active');
+            if(lang === 'en') {
+                document.getElementById('hero-title').textContent = 'Canton Fair VIP Services';
+                document.getElementById('hero-subtitle').textContent = 'Your China Sourcing Expert';
+                document.getElementById('cta-book').textContent = 'Book Now';
+                document.getElementById('cta-more').textContent = 'Learn More';
+            }
         }
-        return "感谢咨询！请告诉我您需要什么服务？";
-    }
-    
-    function toggleChat() {
-        var widget = document.getElementById('ai-chat-widget');
-        var btn = document.getElementById('chat-toggle-btn');
-        if (widget.classList.contains('show')) {
-            widget.classList.remove('show');
-        } else {
-            widget.classList.add('show');
+        function toggleChat() {
+            var w = document.getElementById('ai-chat-widget');
+            var b = document.getElementById('chat-toggle-btn');
+            w.style.display = w.style.display === 'none' ? 'flex' : 'none';
+            b.style.display = w.style.display === 'flex' ? 'none' : 'flex';
         }
-    }
-    
-    function sendMessage() {
-        var input = document.getElementById('chat-input');
-        var msg = input.value.trim();
-        if (!msg) return;
-        var msgs = document.getElementById('chat-messages');
-        msgs.innerHTML += '<div style="background:#fff;padding:12px;border-radius:12px;margin-bottom:10px;">' + msg + '</div>';
-        setTimeout(function() {
-            var answer = getAnswer(msg);
-            msgs.innerHTML += '<div style="background:#f0f0f0;padding:12px;border-radius:12px;margin-bottom:10px;">' + answer + '</div>';
-            msgs.scrollTop = msgs.scrollHeight;
-        }, 500);
-        input.value = '';
-        msgs.scrollTop = msgs.scrollHeight;
-    }
-    
-    function showMessageForm() {
-        document.getElementById('message-modal').classList.add('show');
-    }
-    
-    function closeMessageForm() {
-        document.getElementById('message-modal').classList.remove('show');
-    }
-    
-    function submitMessage() {
-        var name = document.getElementById('msg-name').value;
-        var contact = document.getElementById('msg-contact').value;
-        var message = document.getElementById('msg-content').value;
-        if (!contact) { alert('请填写联系方式！'); return; }
-        if (!message) { alert('请填写留言内容！'); return; }
-        
-        // 发送数据
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST', 'https://cantonfairassist.online/message-api.php', true);
-        xhr.setRequestHeader('Content-Type', 'application/json');
-        xhr.send(JSON.stringify({name: name, contact: contact, message: message}));
-        
-        alert('留言成功！我们会尽快联系您！');
-        closeMessageForm();
-    }
-    
-    function setLang(lang) {
-        document.documentElement.lang = lang;
-        document.querySelectorAll('.lang-btn').forEach(function(btn) { btn.classList.remove('active'); });
-        event.target.classList.add('active');
-    }
+        function sendMessage() {
+            var input = document.getElementById('chat-input');
+            var msg = input.value.trim();
+            if(!msg) return;
+            var msgs = document.getElementById('chat-messages');
+            msgs.innerHTML += '<div style="background:#002244;color:white;padding:8px 12px;border-radius:4px;margin:8px 0;text-align:right;max-width:80%;margin-left:auto;font-size:14px;">' + msg + '</div>';
+            setTimeout(function() {
+                msgs.innerHTML += '<div style="background:#f0f0f0;color:#333;padding:8px 12px;border-radius:4px;margin:8px 0;max-width:80%;font-size:14px;">您好！请问有什么可以帮您？</div>';
+                msgs.scrollTop = msgs.scrollHeight;
+            }, 500);
+            input.value = '';
+        }
     </script>
 </body>
 </html>
