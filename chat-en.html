@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>广交会AI客服</title>
+    <title>Canton Fair AI Assistant</title>
     <style>
         *{margin:0;padding:0;box-sizing:border-box;font-family:"微软雅黑", Arial, sans-serif}
         .chat-container{width:380px;height:550px;border:1px solid #ddd;border-radius:12px;display:flex;flex-direction:column;position:fixed;bottom:20px;right:20px;background:#fff;box-shadow:0 0 20px rgba(0,0,0,0.15)}
@@ -33,7 +33,7 @@
         <div class="chat-header">
             <div class="avatar">🤖</div>
             <div>
-                <div>广交会AI客服</div>
+                <div>Canton Fair AI Assistant</div>
                 <div style="font-size:11px;font-weight:normal;opacity:0.8">竭诚为您服务</div>
             </div>
         </div>
@@ -45,11 +45,11 @@
             <button class="quick-btn" onclick="send('需要订酒店')">🏨 Hotel Booking</button>
             <button class="quick-btn" onclick="send('订机票')">✈️ Flight Booking</button>
             <button class="quick-btn" onclick="send('想看厂')">🏭 看厂服务</button>
-            <button class="quick-btn" onclick="send('联系人工客服')">👤 人工客服</button>
+            <button class="quick-btn" onclick="send('Contact Agent')">👤 Live Agent</button>
         </div>
         <div class="chat-input">
-            <input type="text" id="userInput" placeholder="请输入您的问题..." onkeypress="if(event.key==='Enter')sendMessage()">
-            <button onclick="sendMessage()">发送</button>
+            <input type="text" id="userInput" placeholder="Ask a question..." onkeypress="if(event.key==='Enter')sendMessage()">
+            <button onclick="sendMessage()">Send</button>
         </div>
     </div>
 
@@ -59,7 +59,7 @@
         let currentIntent = null;
         
         window.onload=()=>{
-            addBot("您好！我是广交会AI客服，请问有什么可以帮您？\n\n📝 翻译预约 | 🏭 供应商匹配\n🏨 Hotel Booking | ✈️ Flight Booking\n🏭 看厂服务 | 👤 人工客服\n\n请直接留言或点击上方按钮~");
+            addBot("Hello! I'm Canton Fair AI Assistant. How can I help you?\n\n📝 Translation | 🏭 Supplier Matching\n🏨 Hotel Booking | ✈️ Flight Booking\n🏭 Factory Visit | 👤 Live Agent\n\nLeave a message or click buttons above~");
         };
 
         function send(text){document.getElementById("userInput").value=text;sendMessage()}
@@ -85,45 +85,45 @@
         function showOrderForm(serviceType){
             const forms = {
                 "book_translation": `<form onsubmit="submitOrder(event,'Translation Service')">
-                    <div class="form-group"><label>Name</label><input type="text" name="name" required placeholder="请输入Name"></div>
-                    <div class="form-group"><label>Phone</label><input type="tel" name="phone" required placeholder="请输入Phone"></div>
+                    <div class="form-group"><label>Name</label><input type="text" name="name" required placeholder="Your name"></div>
+                    <div class="form-group"><label>Phone</label><input type="tel" name="phone" required placeholder="Your phone"></div>
                     <div class="form-group"><label>Date</label><input type="date" name="date" required></div>
-                    <div class="form-group"><label>语种</label><select name="language"><option>英语</option><option>日语</option><option>韩语</option><option>法语</option><option>其他</option></select></div>
-                    <div class="form-group"><label>备注</label><input type="text" name="demand" placeholder="其他Requirements"></div>
+                    <div class="form-group"><label>Language</label><select name="language"><option>English</option><option>Japanese</option><option>Korean</option><option>French</option><option>Other</option></select></div>
+                    <div class="form-group"><label>Notes</label><input type="text" name="demand" placeholder="Other requirements"></div>
                     <button type="submit" class="btn form-btn">Submit</button>
                 </form>`,
                 
                 "query_hotel": `<form onsubmit="submitOrder(event,'Hotel Booking')">
                     <div class="form-group"><label>Name</label><input type="text" name="name" required></div>
                     <div class="form-group"><label>Phone</label><input type="tel" name="phone" required></div>
-                    <div class="form-group"><label>Check-inDate</label><input type="date" name="checkin" required></div>
-                    <div class="form-group"><label>Check-outDate</label><input type="date" name="checkout" required></div>
+                    <div class="form-group"><label>Check-in</label><input type="date" name="checkin" required></div>
+                    <div class="form-group"><label>Check-out</label><input type="date" name="checkout" required></div>
                     <div class="form-group"><label>Guests</label><input type="number" name="people" min="1" value="1"></div>
-                    <div class="form-group"><label>Budget/要求</label><input type="text" name="demand" placeholder="如：靠近展馆、500元/晚"></div>
+                    <div class="form-group"><label>Budget</label><input type="text" name="demand" placeholder="Near venue, $50/night"></div>
                     <button type="submit" class="btn form-btn">Submit</button>
                 </form>`,
                 
                 "query_flight_train": `<form onsubmit="submitOrder(event,'Flight Booking')">
                     <div class="form-group"><label>Name</label><input type="text" name="name" required></div>
                     <div class="form-group"><label>Phone</label><input type="tel" name="phone" required></div>
-                    <div class="form-group"><label>出发城市</label><input type="text" name="from" placeholder="如：上海"></div>
-                    <div class="form-group"><label>目的城市</label><input type="text" name="to" placeholder="如：广州"></div>
+                    <div class="form-group"><label>From City</label><input type="text" name="from" placeholder="e.g., Shanghai"></div>
+                    <div class="form-group"><label>To City</label><input type="text" name="to" placeholder="e.g., Guangzhou"></div>
                     <div class="form-group"><label>Date</label><input type="date" name="date" required></div>
                     <div class="form-group"><label>Guests</label><input type="number" name="people" min="1" value="1"></div>
                     <button type="submit" class="btn form-btn">Submit</button>
                 </form>`,
                 
-                "book_factory_visit": `<form onsubmit="submitOrder(event,'看厂服务')">
+                "book_factory_visit": `<form onsubmit="submitOrder(event,'Factory Visit')">
                     <div class="form-group"><label>Name</label><input type="text" name="name" required></div>
                     <div class="form-group"><label>Phone</label><input type="tel" name="phone" required></div>
-                    <div class="form-group"><label>行业/产品</label><input type="text" name="industry" placeholder="如：电子数码"></div>
-                    <div class="form-group"><label>期望Date</label><input type="date" name="date" required></div>
-                    <div class="form-group"><label>备注</label><input type="text" name="demand" placeholder="Other requirements"></div>
+                    <div class="form-group"><label>Industry/Product</label><input type="text" name="industry" placeholder="e.g., Electronics"></div>
+                    <div class="form-group"><label>Date</label><input type="date" name="date" required></div>
+                    <div class="form-group"><label>Notes</label><input type="text" name="demand" placeholder="Other requirements"></div>
                     <button type="submit" class="btn form-btn">Submit</button>
                 </form>`
             };
             
-            return forms[serviceType] || "<p>请留言说明您的Requirements，客服会尽快联系您。</p>";
+            return forms[serviceType] || "<p>Please leave your message. Our team will contact you soon.</p>";
         }
 
         async function submitOrder(e, serviceType){
@@ -149,7 +149,7 @@
                 });
                 const d = await r.json();
                 if(d.code === 0){
-                    addBot("✅ " + d.msg + "\n\n📞 客服: +86 13823088611\n💬 WhatsApp: +852 46093965\n📧 邮箱: 1455933248@qq.com：\nPhone: +86 13823088611\n微信: blackhawkzh");
+                    addBot("✅ " + d.msg + "\n\n📞 Phone: +86 13823088611\n💬 WhatsApp: +852 46093965\n📧 Email: 1455933248@qq.com\nWeChat: blackhawkzh");
                 } else {
                     addBot("❌ Submit失败，请Phone联系: +86 13823088611");
                 }
