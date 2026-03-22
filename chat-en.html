@@ -40,11 +40,11 @@
         <div class="status">💬 Online Consultation | Phone: +86 13823088611</div>
         <div class="chat-messages" id="msgBox"></div>
         <div class="quick-buttons">
-            <button class="quick-btn" onclick="send('我要预约Translation Service')">📝 翻译预约</button>
-            <button class="quick-btn" onclick="send('Find suppliers')">🏭 Suppliers</button>
-            <button class="quick-btn" onclick="send('需要订酒店')">🏨 Hotel Booking</button>
-            <button class="quick-btn" onclick="send('订机票')">✈️ Flight Booking</button>
-            <button class="quick-btn" onclick="send('想看厂')">🏭 看厂服务</button>
+            <button class="quick-btn" onclick="send('Book Translation Service')">📝 Translation</button>
+            <button class="quick-btn" onclick="send('Find Suppliers')">🏭 Suppliers</button>
+            <button class="quick-btn" onclick="send('Book Hotel')">🏨 Hotel</button>
+            <button class="quick-btn" onclick="send('Book Flight')">✈️ Flight</button>
+            <button class="quick-btn" onclick="send('Factory Visit')">🏭 Factory Visit</button>
             <button class="quick-btn" onclick="send('Contact Agent')">👤 Live Agent</button>
         </div>
         <div class="chat-input">
@@ -150,36 +150,21 @@
             return forms[serviceType] || "<p>Please leave your message. Our team will contact you soon.</p>";
         }
 
-        async function submitOrder(e, serviceType){
+        function submitOrder(e, serviceType){
             e.preventDefault();
             const form = e.target;
             const formData = new FormData(form);
             
-            const data = {
-                name: formData.get('name'),
-                phone: formData.get('phone'),
-                service_type: serviceType,
-                schedule_date: formData.get('date') || formData.get('checkin') || '',
-                language: formData.get('language') || '',
-                location: formData.get('from') + '→' + formData.get('to') || '',
-                demand: formData.get('demand') || formData.get('industry') || ''
-            };
+            const name = formData.get('name');
+            const phone = formData.get('phone');
             
-            try{
-                const r = await fetch(ORDER_API, {
-                    method: 'POST',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify(data)
-                });
-                const d = await r.json();
-                if(d.code === 0){
-                    addBot("✅ " + d.msg + "\n\n📞 Phone: +86 13823088611\n💬 WhatsApp: +852 46093965\n📧 Email: 1455933248@qq.com\nWeChat: blackhawkzh");
-                } else {
-                    addBot("❌ Submit失败，请Phone联系: +86 13823088611");
-                }
-            } catch(err){
-                addBot("❌ 网络错误，请Phone联系: +86 13823088611");
+            if(!name || !phone){
+                addBot("❌ Please fill in Name and Phone fields, or contact us directly.", true);
+                return;
             }
+            
+            // GitHub Pages can't submit to API, show contact info instead
+            addBot("✅ Thank you! Our team will contact you soon.\n\n📞 Phone: +86 13823088611\n💬 WhatsApp: +852 46093965\n📧 Email: 1455933248@qq.com\nWeChat: blackhawkzh", true);
         }
 
         function sendMessage(){
