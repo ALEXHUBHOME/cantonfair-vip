@@ -54,12 +54,36 @@
     </div>
 
     <script>
-        const API_URL = '/api/chat';
-        const ORDER_API = '/api/order/submit';
-        let currentIntent = null;
+        // 本地知识库
+        const responses = {
+            "translation": "📝 Great! We provide professional translation services.\n\n📋 Service Types:\n- Business negotiation\n- Technical documents\n- Contract review\n\n💰 Price: USD 120-200/day\n\nClick 'Contact Agent' below and we'll assist you!",
+            "translator": "📝 Great! We provide professional translation services.\n\n📋 Service Types:\n- Business negotiation\n- Technical documents\n- Contract review\n\n💰 Price: USD 120-200/day",
+            "supplier": "🏭 We help you find verified suppliers!\n\nTell us:\n- What products are you looking for?\n- What's your target price?\n- What's your order quantity?",
+            "suppliers": "🏭 We help you find verified suppliers!\n\nTell us:\n- What products are you looking for?\n- What's your target price?",
+            "factory visit": "🏭 Factory Visit Service\n\nWe arrange:\n- Factory tours\n- Quality inspection\n- Negotiation support\n\n💰 Price: USD 200-350/visit",
+            "hotel": "🏨 Hotel Booking Service\n\nRecommended hotels near Pazhou Expo Center:\n- Shangri-La Hotel\n- InterContinental Guangzhou\n\nWhat's your budget and dates?",
+            "flight": "✈️ Flight Booking Assistance\n\nWe can help arrange:\n- Flight booking\n- Airport pickup\n\nWhat's your departure city and date?",
+            "live agent": "👤 Contact our team:\n\n📞 Phone: +86 13823088611\n💬 WhatsApp: +852 46093965\n📧 Email: 1455933248@qq.com\nWeChat: blackhawkzh",
+            "contact": "👤 Contact our team:\n\n📞 Phone: +86 13823088611\n💬 WhatsApp: +852 46093965\n📧 Email: 1455933248@qq.com\nWeChat: blackhawkzh",
+            "hello": "👋 Hello! Welcome to Canton Fair AI Assistant!\n\nHow can I help you today?",
+            "hi": "👋 Hello! Welcome to Canton Fair AI Assistant!\n\nHow can I help you today?",
+            "thank": "😊 You're welcome! Wish you a successful Canton Fair trip!",
+            "thanks": "😊 You're welcome! Wish you a successful Canton Fair trip!",
+            "canton fair": "📅 Canton Fair (China Import and Export Fair)\n\n📍 Guangzhou Pazhou International Exhibition Center\n\n🗓️ Spring 2026: April 15 - May 5",
+            "price": "💰 Our Services:\n\n📝 Translation: USD 120-200/day\n🛒 Shopping Guide: USD 150-300/day\n🏭 Factory Visit: USD 200-350/visit",
+            "pricing": "💰 Our Services:\n\n📝 Translation: USD 120-200/day\n🛒 Shopping Guide: USD 150-300/day\n🏭 Factory Visit: USD 200-350/visit"
+        };
+        
+        function getAnswer(q) {
+            q = q.toLowerCase();
+            for (let key in responses) {
+                if (q.indexOf(key) !== -1) return responses[key];
+            }
+            return "Thanks for your message! For quick response, please contact us:\n📞 +86 13823088611\n💬 WhatsApp: +852 46093965";
+        }
         
         window.onload=()=>{
-            addBot("Hello! I'm Canton Fair AI Assistant. How can I help you?\n\n📝 Translation | 🏭 Supplier Matching\n🏨 Hotel Booking | ✈️ Flight Booking\n🏭 Factory Visit | 👤 Live Agent\n\nLeave a message or click buttons above~");
+            addBot("Hello! I'm Canton Fair AI Assistant. How can I help you?\n\n📝 Translation | 🏭 Suppliers\n🏨 Hotel | ✈️ Flight\n🏭 Factory Visit | 👤 Live Agent\n\nLeave a message or click buttons above~");
         };
 
         function send(text){document.getElementById("userInput").value=text;sendMessage()}
@@ -158,33 +182,14 @@
             }
         }
 
-        async function sendMessage(){
+        function sendMessage(){
             const t = document.getElementById("userInput").value.trim();
             if(!t) return;
             addUser(t);
             document.getElementById("userInput").value = "";
             
-            try{
-                const r = await fetch(API_URL, {
-                    method: "POST",
-                    headers: {"Content-Type": "application/json"},
-                    body: JSON.stringify({prompt: t})
-                });
-                const d = await r.json();
-                
-                currentIntent = d.intent;
-                
-                // 需要填写表单的意图
-                if(['book_translation','query_hotel','query_flight_train','book_factory_visit'].includes(d.intent)){
-                    const formHtml = showOrderForm(d.intent);
-                    addBot(d.reply + "<br><br>Please fill in the following:", true);
-                    addBot(formHtml, true);
-                } else {
-                    addBot(d.reply);
-                }
-            } catch(e){
-                addBot("连接失败，请Phone联系: +86 13823088611");
-            }
+            const answer = getAnswer(t);
+            addBot(answer);
         }
     </script>
 </body>
