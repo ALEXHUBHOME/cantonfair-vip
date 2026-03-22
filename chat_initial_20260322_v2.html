@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>广交会AI客服</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;font-family:"微软雅黑", Arial, sans-serif}
+        .chat-container{width:380px;height:550px;border:1px solid #ddd;border-radius:12px;display:flex;flex-direction:column;position:fixed;bottom:20px;right:20px;background:#fff;box-shadow:0 0 20px rgba(0,0,0,0.15)}
+        .chat-header{padding:14px;background:#0066cc;color:#fff;border-radius:12px 12px 0 0;font-weight:bold;display:flex;align-items:center;gap:10px}
+        .chat-header .avatar{width:32px;height:32px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center}
+        .chat-messages{flex:1;padding:10px;overflow-y:auto;background:#f7f7f7}
+        .msg{margin-bottom:10px;max-width:80%;padding:10px 14px;border-radius:15px;word-wrap:break-word}
+        .msg-bot{background:#e5e5ea;align-self:flex-start;border-bottom-left-radius:3px}
+        .msg-user{background:#0066cc;color:#fff;align-self:flex-end;margin-left:auto;border-bottom-right-radius:3px}
+        .msg-form{background:#fff3cd;padding:10px;border-radius:10px;border:1px solid #ffc107;max-width:95%}
+        .chat-input{display:flex;padding:10px;border-top:1px solid #eee;gap:8px}
+        .chat-input input{flex:1;padding:10px;border:1px solid #ddd;border-radius:20px;outline:none}
+        .chat-input button{padding:10px 20px;background:#0066cc;color:#fff;border:none;border-radius:20px;cursor:pointer;font-weight:bold}
+        .chat-input button:hover{background:#0055aa}
+        .quick-buttons{display:flex;flex-wrap:wrap;padding:8px 10px;gap:6px;background:#fff;border-bottom:1px solid #eee}
+        .quick-btn{padding:6px 12px;font-size:12px;border:1px solid #0066cc;color:#0066cc;border-radius:15px;background:#fff;cursor:pointer}
+        .quick-btn:hover{background:#0066cc;color:#fff}
+        .status{font-size:11px;color:#888;padding:5px 10px;background:#f0f0f0}
+        .form-group{margin-bottom:8px}
+        .form-group label{display:block;font-size:12px;color:#666;margin-bottom:3px}
+        .form-group input,.form-group select{width:100%;padding:6px;border:1px solid #ddd;border-radius:5px;font-size:13px}
+        .form-btn{background:#28a745 !important;width:100%;margin-top:5px}
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <div class="avatar">🤖</div>
+            <div>
+                <div>广交会AI客服</div>
+                <div style="font-size:11px;font-weight:normal;opacity:0.8">竭诚为您服务</div>
+            </div>
+        </div>
+        <div class="status">💬 在线咨询 | 电话: +86 13823088611</div>
+        <div class="chat-messages" id="msgBox"></div>
+        <div class="quick-buttons">
+            <button class="quick-btn" onclick="send('我要预约翻译服务')">📝 翻译预约</button>
+            <button class="quick-btn" onclick="send('帮我找供应商')">🏭 找供应商</button>
+            <button class="quick-btn" onclick="send('需要订酒店')">🏨 酒店预订</button>
+            <button class="quick-btn" onclick="send('订机票')">✈️ 机票预订</button>
+            <button class="quick-btn" onclick="send('想看厂')">🏭 看厂服务</button>
+            <button class="quick-btn" onclick="send('联系人工客服')">👤 人工客服</button>
+        </div>
+        <div class="chat-input">
+            <input type="text" id="userInput" placeholder="请输入您的问题..." onkeypress="if(event.key==='Enter')sendMessage()">
+            <button onclick="sendMessage()">发送</button>
+        </div>
+    </div>
+
+    <script>
+        const API_URL = '/api/chat';
+        const ORDER_API = '/api/order/submit';
+        let currentIntent = null;
+        
+        window.onload=()=>{
+            addBot("您好！我是广交会AI客服，请问有什么可以帮您？\n\n📝 翻译预约 | 🏭 供应商匹配\n🏨 酒店预订 | ✈️ 机票预订\n🏭 看厂服务 | 👤 人工客服\n\n请直接留言或点击上方按钮~");
+        };
+
+        function send(text){document.getElementById("userInput").value=text;sendMessage()}
+        
+        function addBot(t, isForm=false){
+            const b=document.getElementById("msgBox");
+            const d=document.createElement("div");
+            d.className=isForm?"msg msg-bot msg-form":"msg msg-bot";
+            d.innerHTML=t.replace(/\n/g,'<br>');
+            b.appendChild(d);
+            b.scrollTop=b.scrollHeight
+        }
+        
+        function addUser(t){
+            const b=document.getElementById("msgBox");
+            const d=document.createElement("div");
+            d.className="msg msg-user";
+            d.innerText=t;
+            b.appendChild(d);
+            b.scrollTop=b.scrollHeight
+        }
+
+        function showOrderForm(serviceType){
+            const forms = {
+                "book_translation": `<form onsubmit="submitOrder(event,'翻译服务')">
+                    <div class="form-group"><label>姓名</label><input type="text" name="name" required placeholder="请输入姓名"></div>
+                    <div class="form-group"><label>电话</label><input type="tel" name="phone" required placeholder="请输入电话"></div>
+                    <div class="form-group"><label>日期</label><input type="date" name="date" required></div>
+                    <div class="form-group"><label>语种</label><select name="language"><option>英语</option><option>日语</option><option>韩语</option><option>法语</option><option>其他</option></select></div>
+                    <div class="form-group"><label>备注</label><input type="text" name="demand" placeholder="其他需求"></div>
+                    <button type="submit" class="btn form-btn">提交预约</button>
+                </form>`,
+                
+                "query_hotel": `<form onsubmit="submitOrder(event,'酒店预订')">
+                    <div class="form-group"><label>姓名</label><input type="text" name="name" required></div>
+                    <div class="form-group"><label>电话</label><input type="tel" name="phone" required></div>
+                    <div class="form-group"><label>入住日期</label><input type="date" name="checkin" required></div>
+                    <div class="form-group"><label>退房日期</label><input type="date" name="checkout" required></div>
+                    <div class="form-group"><label>人数</label><input type="number" name="people" min="1" value="1"></div>
+                    <div class="form-group"><label>预算/要求</label><input type="text" name="demand" placeholder="如：靠近展馆、500元/晚"></div>
+                    <button type="submit" class="btn form-btn">提交预订</button>
+                </form>`,
+                
+                "query_flight_train": `<form onsubmit="submitOrder(event,'机票预订')">
+                    <div class="form-group"><label>姓名</label><input type="text" name="name" required></div>
+                    <div class="form-group"><label>电话</label><input type="tel" name="phone" required></div>
+                    <div class="form-group"><label>出发城市</label><input type="text" name="from" placeholder="如：上海"></div>
+                    <div class="form-group"><label>目的城市</label><input type="text" name="to" placeholder="如：广州"></div>
+                    <div class="form-group"><label>日期</label><input type="date" name="date" required></div>
+                    <div class="form-group"><label>人数</label><input type="number" name="people" min="1" value="1"></div>
+                    <button type="submit" class="btn form-btn">提交预订</button>
+                </form>`,
+                
+                "book_factory_visit": `<form onsubmit="submitOrder(event,'看厂服务')">
+                    <div class="form-group"><label>姓名</label><input type="text" name="name" required></div>
+                    <div class="form-group"><label>电话</label><input type="tel" name="phone" required></div>
+                    <div class="form-group"><label>行业/产品</label><input type="text" name="industry" placeholder="如：电子数码"></div>
+                    <div class="form-group"><label>期望日期</label><input type="date" name="date" required></div>
+                    <div class="form-group"><label>备注</label><input type="text" name="demand" placeholder="其他要求"></div>
+                    <button type="submit" class="btn form-btn">提交预约</button>
+                </form>`
+            };
+            
+            return forms[serviceType] || "<p>请留言说明您的需求，客服会尽快联系您。</p>";
+        }
+
+        async function submitOrder(e, serviceType){
+            e.preventDefault();
+            const form = e.target;
+            const formData = new FormData(form);
+            
+            const data = {
+                name: formData.get('name'),
+                phone: formData.get('phone'),
+                service_type: serviceType,
+                schedule_date: formData.get('date') || formData.get('checkin') || '',
+                language: formData.get('language') || '',
+                location: formData.get('from') + '→' + formData.get('to') || '',
+                demand: formData.get('demand') || formData.get('industry') || ''
+            };
+            
+            try{
+                const r = await fetch(ORDER_API, {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(data)
+                });
+                const d = await r.json();
+                if(d.code === 0){
+                    addBot("✅ " + d.msg + "\n\n📞 客服: +86 13823088611\n💬 WhatsApp: +852 46093965\n📧 邮箱: 1455933248@qq.com：\n电话: +86 13823088611\n微信: blackhawkzh");
+                } else {
+                    addBot("❌ 提交失败，请电话联系: +86 13823088611");
+                }
+            } catch(err){
+                addBot("❌ 网络错误，请电话联系: +86 13823088611");
+            }
+        }
+
+        async function sendMessage(){
+            const t = document.getElementById("userInput").value.trim();
+            if(!t) return;
+            addUser(t);
+            document.getElementById("userInput").value = "";
+            
+            try{
+                const r = await fetch(API_URL, {
+                    method: "POST",
+                    headers: {"Content-Type": "application/json"},
+                    body: JSON.stringify({prompt: t})
+                });
+                const d = await r.json();
+                
+                currentIntent = d.intent;
+                
+                // 需要填写表单的意图
+                if(['book_translation','query_hotel','query_flight_train','book_factory_visit'].includes(d.intent)){
+                    const formHtml = showOrderForm(d.intent);
+                    addBot(d.reply + "<br><br>请填写以下信息：", true);
+                    addBot(formHtml, true);
+                } else {
+                    addBot(d.reply);
+                }
+            } catch(e){
+                addBot("连接失败，请电话联系: +86 13823088611");
+            }
+        }
+    </script>
+</body>
+</html>
