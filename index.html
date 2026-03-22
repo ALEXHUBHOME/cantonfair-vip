@@ -97,8 +97,8 @@
         </div>
     </section>
     <section class="services" id="services"><div class="container"><div class="section-title"><h2>One-Stop Sourcing Solutions</h2></div><div class="services-grid"><div class="service-card"><div class="service-icon"><i class="fas fa-language"></i></div><h3>Professional Translation</h3><p>Business negotiation, technical documents, contract review, 20+ languages</p><div class="service-price">From USD 120/day</div></div><div class="service-card"><div class="service-icon"><i class="fas fa-shopping-bag"></i></div><h3>VIP Shopping Guide</h3><p>Exhibition escort, precise selection</p><div class="service-price">From USD 150/day</div></div><div class="service-card"><div class="service-icon"><i class="fas fa-plane"></i></div><h3>Itinerary Planning</h3><p>Hotel/Airport/Transportation</p><div class="service-price">Customized</div></div><div class="service-card"><div class="service-icon"><i class="fas fa-industry"></i></div><h3>Factory Visit</h3><p>Scheduled visits, quality inspection</p><div class="service-price">From USD 200/visit</div></div></div></div></section>
-    <section class="interactive"><div class="container"><div class="section-title"><h2>留言互动</h2><p>选择您的身份</p></div><div class="interactive-grid"><div class="interactive-card" onclick="showMessageForm()"><i class="fas fa-shopping-cart" style="font-size:40px;color:#0066cc;"></i><h3>我是买家</h3><button class="btn btn-buyer">留言</button></div><div class="interactive-card" onclick="showMessageForm()"><i class="fas fa-boxes" style="font-size:40px;color:#28a745;"></i><h3>我是卖家</h3><button class="btn btn-seller">留言</button></div><div class="interactive-card" onclick="showMessageForm()"><i class="fas fa-user-plus" style="font-size:40px;color:#fd7e14;"></i><h3>应聘/合作</h3><button class="btn btn-partner">留言</button></div></div></div></section>
-    <section class="contact" id="contact"><div class="container"><h2>Contact Now</h2><div class="contact-cards"><div class="contact-card"><i class="fas fa-phone-alt"></i><h3>电话</h3><p>+86-13823088611</p></div><div class="contact-card"><i class="fab fa-whatsapp"></i><h3>WhatsApp</h3><p>+852-46093965</p></div><div class="contact-card"><i class="fab fa-weixin"></i><h3>微信</h3><p>blackhawkzh</p></div><div class="contact-card"><i class="fas fa-envelope"></i><h3>邮箱</h3><p>1455933248@qq.com</p></div></div><a href="mailto:1455933248@qq.com" class="cta-button">免费咨询</a></div></section>
+    <section class="interactive"><div class="container"><div class="section-title"><h2>Message Board</h2><p>Select Your Role</p></div><div class="interactive-grid"><div class="interactive-card" onclick="showMessageForm()"><i class="fas fa-shopping-cart" style="font-size:40px;color:#0066cc;"></i><h3>I'm a Buyer</h3><button class="btn btn-buyer">Send</button></div><div class="interactive-card" onclick="showMessageForm()"><i class="fas fa-boxes" style="font-size:40px;color:#28a745;"></i><h3>I'm a Seller</h3><button class="btn btn-seller">Send</button></div><div class="interactive-card" onclick="showMessageForm()"><i class="fas fa-user-plus" style="font-size:40px;color:#fd7e14;"></i><h3>Apply/Partner</h3><button class="btn btn-partner">Send</button></div></div></div></section>
+    <section class="contact" id="contact"><div class="container"><h2>Contact Now</h2><div class="contact-cards"><div class="contact-card"><i class="fas fa-phone-alt"></i><h3>电话</h3><p>+86-13823088611</p></div><div class="contact-card"><i class="fab fa-whatsapp"></i><h3>WhatsApp</h3><p>+852-46093965</p></div><div class="contact-card"><i class="fab fa-weixin"></i><h3>微信</h3><p>blackhawkzh</p></div><div class="contact-card"><i class="fas fa-envelope"></i><h3>邮箱</h3><p>1455933248@qq.com</p></div></div><a href="mailto:1455933248@qq.com" class="cta-button">Free Consultation</a></div></section>
     <footer><div class="container"><p>© 2026 广交会VIP服务</p></div></footer>
     
     <!-- AI Chat -->
@@ -118,10 +118,10 @@
     <!-- Message Modal -->
     <div id="message-modal">
         <div class="modal-content">
-            <h3 style="color:#003366;margin-bottom:20px;">💬 留言给我们</h3>
+            <h3 style="color:#003366;margin-bottom:20px;">💬 Leave a Message</h3>
             <input type="text" id="msg-name" placeholder="您的姓名（选填）" style="width:100%;padding:12px;margin-bottom:15px;border:1px solid #ddd;border-radius:8px;">
             <input type="text" id="msg-contact" placeholder="联系方式（必填）*" style="width:100%;padding:12px;margin-bottom:15px;border:1px solid #ddd;border-radius:8px;">
-            <textarea id="msg-content" placeholder="请输入留言内容..." rows="4" style="width:100%;padding:12px;margin-bottom:15px;border:1px solid #ddd;border-radius:8px;resize:none;"></textarea>
+            <textarea id="msg-content" placeholder="Enter your message..." rows="4" style="width:100%;padding:12px;margin-bottom:15px;border:1px solid #ddd;border-radius:8px;resize:none;"></textarea>
             <div style="display:flex;gap:10px;">
                 <button onclick="submitMessage()" style="flex:1;padding:12px;background:#0066cc;color:white;border:none;border-radius:8px;cursor:pointer;">提交</button>
                 <button onclick="closeMessageForm()" style="flex:1;padding:12px;background:#ccc;color:#333;border:none;border-radius:8px;cursor:pointer;">取消</button>
@@ -215,7 +215,7 @@
         var contact = document.getElementById('msg-contact').value;
         var message = document.getElementById('msg-content').value;
         if (!contact) { alert('请填写联系方式！'); return; }
-        if (!message) { alert('请填写留言内容！'); return; }
+        if (!message) { alert('Please enter message!'); return; }
         
         // 发送数据
         var xhr = new XMLHttpRequest();
@@ -223,7 +223,7 @@
         xhr.setRequestHeader('Content-Type', 'application/json');
         xhr.send(JSON.stringify({name: name, contact: contact, message: message}));
         
-        alert('留言成功！我们会尽快联系您！');
+        alert('Message sent! We will contact you soon!');
         closeMessageForm();
     }
     
